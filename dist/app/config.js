@@ -7,5 +7,6 @@
       authDomain: "d-lock.firebaseapp.com",
       databaseURL: "https://d-lock.firebaseio.com"
     })
-    .value('CLIENTS_REF', 'clients/');
+    .value('CLIENTS_REF', 'clients/')
+    .value('SERVER_URL', 'http://991f3900.ngrok.io/');
 })();

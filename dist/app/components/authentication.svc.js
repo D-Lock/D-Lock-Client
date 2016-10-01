@@ -9,7 +9,8 @@
     var auth = firebase.auth();
     var db = firebase.database();
     var service = {};
-    var macAddress = undefined;
+
+    service.macAddress = undefined;
 
     service.loggedIn = false;
     service.user = null;
@@ -20,6 +21,9 @@
       signIn.then(function(user) {
         service.loggedIn = true;
         service.user = user;
+
+        service.onlineAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
+        service.allAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("all");
       });
       signIn.catch(function(error) {
         service.loggedIn = false;
@@ -30,30 +34,29 @@
     //When the user is now logged in
     auth.onAuthStateChanged(function(user) {
       service.loggedIn = !!user;
-      macAddress = $window.mac;
-      if(!macAddress) {
+      service.macAddress = $window.mac;
+      if(!service.macAddress) {
         throw "MAC Address is not in the global scope";
       }
       //Put their MAC address on the online list
-      db.ref(CLIENTS_REF).child(service.user.uid).child("online").push(macAddress);
+      service.onlineAddresses.push(service.macAddress);
     });
 
     //When the user closes the window
     service.logOut = function() {
       if(!macAddress) return auth.signOut();
 
-      var userClients = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
       //Remove the client from the online list
-      userClients.once("value").then(function(snapshot) {
-        for(var i = 0; i < snapshot.length; i++) {
+      service.onlineAddresses.once("value").then(function(snapshot) {
+        snapshot.forEach(function(macObj) {
           var mac = macObj.val();
           if(mac === macAddress) {
-            userClients.child(macObj.key).remove();
-            return auth.signOut();
+            userClients.child(macObj.key).remove().then(function() {
+              auth.signOut();
+            });
           }
-        }
+        });
       });
-
     };
 
     return service;
