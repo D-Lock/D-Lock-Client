@@ -1,0 +1,672 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backgroudn-o",
+				"background-color"
+			],
+			[
+				"team",
+				"teammates"
+			],
+			[
+				"writ",
+				"writeNonApplicantsCSV"
+			],
+			[
+				"non",
+				"nonApplicants"
+			],
+			[
+				"appl",
+				"applicantIndex"
+			],
+			[
+				"maj",
+				"majors"
+			],
+			[
+				"major",
+				"Major3"
+			],
+			[
+				"other",
+				"otherOS"
+			],
+			[
+				"select",
+				"selectAll"
+			],
+			[
+				"beatmaps",
+				"beatmapsets"
+			],
+			[
+				"users",
+				"users_osu"
+			],
+			[
+				"us",
+				"users_osu"
+			],
+			[
+				"land",
+				"landing_nav_links"
+			],
+			[
+				"class",
+				"className"
+			],
+			[
+				"movie",
+				"movieId"
+			],
+			[
+				"state",
+				"stateParams"
+			],
+			[
+				"movi",
+				"movieInfo"
+			],
+			[
+				"bucket",
+				"bucketName"
+			],
+			[
+				"buck",
+				"bucketName"
+			],
+			[
+				"buc",
+				"bucketModal"
+			],
+			[
+				"play",
+				"playlistId"
+			],
+			[
+				"mov",
+				"movieId"
+			],
+			[
+				"genr",
+				"genreMovies"
+			],
+			[
+				"gen",
+				"genreMovies"
+			],
+			[
+				"Movi",
+				"MovieSpotify"
+			],
+			[
+				"rev",
+				"reviews"
+			],
+			[
+				"rie",
+				"review"
+			],
+			[
+				"stat",
+				"stateParams"
+			],
+			[
+				"sea",
+				"searchTerm"
+			],
+			[
+				"se",
+				"searchTerm"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"pr",
+				"provider"
+			],
+			[
+				"fireb",
+				"firebaseRef"
+			],
+			[
+				"fire",
+				"firebaseRef"
+			],
+			[
+				"fir",
+				"firebaseRef"
+			],
+			[
+				"getWal",
+				"getWallpaperVideoSource"
+			],
+			[
+				"im",
+				"imageCount"
+			],
+			[
+				"fix",
+				"fixedDouble"
+			],
+			[
+				"Osu",
+				"OsuCelebrity-frontend"
+			],
+			[
+				"UserInf",
+				"UserInfoTemplateUrl"
+			],
+			[
+				"_L",
+				"_LeaderboardTemplateUrl_"
+			],
+			[
+				"L",
+				"LeaderboardTemplateUrl"
+			],
+			[
+				"Lead",
+				"LeaderboardTemplateUrl"
+			],
+			[
+				"Lea",
+				"LeaderboardTemplateUrl"
+			],
+			[
+				"comp",
+				"compiled"
+			],
+			[
+				"angu",
+				"angular-route"
+			],
+			[
+				"angular",
+				"angular-resource"
+			],
+			[
+				"pass",
+				"passwordBox"
+			],
+			[
+				"user",
+				"usernameBox"
+			],
+			[
+				"username",
+				"username_box"
+			],
+			[
+				"usernam",
+				"username_box"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "dist/app/authentication/authentication.svc.js",
+			"settings":
+			{
+				"buffer_size": 321,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/index.html",
+			"settings":
+			{
+				"buffer_size": 1107,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 619.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in\t",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 777.0
+	},
+	"console":
+	{
+		"height": 308.0,
+		"history":
+		[
+			"cd \"$env:appdata\\Sublime Text 3\\Packages\\\"",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/RedbackThomson/Documents/D-Lock",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/authentication",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/css",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/vendor/angularfire",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/vendor/angularfire/dist",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/views"
+	],
+	"file_history":
+	[
+		"/C/Users/RedbackThomson/Documents/D-Lock/d-lock.sublime-project",
+		"/C/Users/RedbackThomson/Documents/D-Lock/main.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/views/index.html",
+		"/C/Users/RedbackThomson/Documents/D-Lock/bower.json",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/home/home.ctrl.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/DLock.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/views/home/home.html",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss/bem.scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss/bem/sidebar.scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/views/login/login.html",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss/d-lock.scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/gulpfile.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/authentication/authentication.ctrl.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/config.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss/_globals.scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/css/bem.css",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/css/d-lock.css",
+		"/C/Users/RedbackThomson/Documents/D-Lock/package.json",
+		"/C/Users/RedbackThomson/Documents/D-Lock/src/scss/base/_functions.scss",
+		"/C/Users/RedbackThomson/Documents/D-Lock/views/home.html",
+		"/C/Users/RedbackThomson/Documents/D-Lock/index.html",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/app/authentication/authentication.svc.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/dist/js/sample.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/scripts/authentication.js",
+		"/C/Users/RedbackThomson/Documents/D-Lock/karma.conf.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/acceptances/1.csv",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/updateUserStatuses.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/getTeams.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/entities/users/model.coffee",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/entity_views/users/show.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/scss/bem/user-show.scss",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/mixins/modals/users-show-accept.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/mixins/modals/users-show-decline.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/js/user-info.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/entities/users/controller.coffee",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/gulpfile.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/scss/sdhacks.scss",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/.env",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/layout.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/package.json",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/js/apply-info.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/mixins/apply.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/entities/sponsors/controller.coffee",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/entities/sponsors/model.coffee",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/mixins/footer.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/checkFiles.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/updateMajorCategories.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/js/sponsor-show.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/majorCategories.csv",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/mixins/hero/hero.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/entity_views/users/admin.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/.env.example",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/routes/index.coffee",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/server.js",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/views/home.jade",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/scss/bem/user-admin.scss",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/majors.json",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/scss/bem.scss",
+		"/C/Users/RedbackThomson/Documents/SDHacks2016/static/assets/js/hexagons.js",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/StatusController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/seeds/DatabaseSeeder.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Models/BanchoStats.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/factories/BanchoStatsFactory.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/seeds/ModelSeeders/MiscSeeder.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Models/Count.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/helpers.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/objects/mobile-header.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/home/landing.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/lang/en/home.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/landing-page/landing-graph.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/landing-page/landing-hero.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/less/bem/landing-nav.less",
+		"/C/Users/RedbackThomson/Documents/osu-web/tests/Controllers/BeatmapDiscussionsControllerTest.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/HomeController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/gulpfile.js",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/layout/header.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/seeds/ModelSeeders/BanchoStatsSeeder.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/js/vendor-modules.js",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/lang/en/users.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/seeds/ModelSeeders/BeatmapSeeder.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/migrations/2015_01_01_133337_base_tables.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/less/bem/landing.less",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/historical.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/performance.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/layout/footer.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/routes.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/BeatmapsetsController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/js/messages.js",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/less/bem/landing-hero.less",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Models/User.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/StoreController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/database/migrations/2016_06_08_020908_create_banchostats_table.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/objects/smartphone-header.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/lang/en/layout.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/landing-page/page.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/osu_common.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/landing-page/_base.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/beatmapset-page/main.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/_components/play-detail.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/medals.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/recent-activities.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/status-page/page.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/main.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/header.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/header-info.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/extra-header.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/user-page.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/home/news.blade.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/landing-page.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/views/users/show.blade.php",
+		"/C/Users/RedbackThomson/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/beatmaps.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/react/profile-page/user-page-editor.coffee",
+		"/C/Users/RedbackThomson/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/UsersController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Transformers/UserTransformer.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Models/Beatmap.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Http/Controllers/BeatmapsController.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/resources/assets/coffee/_classes/url.coffee",
+		"/C/Users/RedbackThomson/Documents/osu-web/app/Transformers/UserAchievementTransformer.php",
+		"/C/Users/RedbackThomson/Documents/osu-web/.env",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/components/profile/profile.ctrl.js",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/app.js",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/components/playlist/playlist.html",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/components/history/history.html",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/components/profile/profile.html",
+		"/C/Users/RedbackThomson/Documents/MovieSpotify/src/js/components/history/history.svc.js"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 265.0,
+		"where_history":
+		[
+			"C:\\Users\\RedbackThomson\\Documents\\osu-web\\database\\migrations",
+			"C:\\Users\\RedbackThomson\\Documents\\osu-web",
+			"C:\\Users\\RedbackThomson\\Documents\\osu-web\\resources\\assets\\coffee\\react\\beatmapset-page",
+			"C:\\Users\\RedbackThomson\\Documents\\osu-web",
+			"C:\\Users\\RedbackThomson\\Documents\\MovieSpotify\\src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"Team",
+			"Node",
+			"console.log",
+			".button",
+			"id",
+			"osu_counts",
+			"store",
+			"live",
+			"beatmapsets",
+			"user-dropdown",
+			"user-dropdown-modal",
+			"nav_links",
+			"navLinks",
+			"osu.link",
+			"profile-page",
+			"firstMovie",
+			"$omdb",
+			"History",
+			"myplaylists",
+			"$scope.modal",
+			"lub",
+			"movie.",
+			"user",
+			"starter",
+			"submitOrder",
+			"onNext",
+			"place-order",
+			"updateYearbook",
+			"SwaggerRequest",
+			"request",
+			"swaggerRequest",
+			"subjectID",
+			"ajax",
+			"mockQueueService",
+			"Index",
+			"index",
+			"#timeplayed",
+			"data",
+			"$",
+			"\\"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"lastMovie",
+			"$scope.reviewModal",
+			"selection.",
+			"profileUser",
+			"MovieSpotify",
+			"mockCurrentService",
+			"Idle",
+			"idle",
+			"current",
+			"doc.find",
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "dist/app/authentication/authentication.svc.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 321,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								310,
+								310
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								888,
+								888
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 46.0
+	},
+	"input":
+	{
+		"height": 144.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "d-lock.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 875.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\RedbackThomson\\Documents\\s3-archiver\\s3-archiver.sublime-project"
+			]
+		],
+		"width": 665.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 745.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

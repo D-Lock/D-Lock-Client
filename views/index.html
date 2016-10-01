@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="DLock">
+  <head>
+    <title>D-Lock</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../dist/vendor/skeleton/css/skeleton.css" />
+    <!-- endbower -->
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../dist/css/d-lock.css">
+  </head>
+  <body>
+    <ng-view class="full-height"></ng-view>
+
+    <!-- REQUIRED -->
+    <script src="../jspm_packages/system.js"></script>
+    <script src="../config.js"></script>
+    <!-- bower:js -->
+    <script src="../dist/vendor/angular/angular.js"></script>
+    <script src="../dist/vendor/angular-mocks/angular-mocks.js"></script>
+    <script src="../dist/vendor/angular-route/angular-route.js"></script>
+    <script src="../dist/vendor/firebase/firebase.js"></script>
+    <script src="../dist/vendor/angularfire/dist/angularfire.js"></script>
+    <!-- endbower -->
+    <script src="../dist/app/config.js"></script>
+
+    <script src="../dist/app/authentication/authentication.svc.js"></script>
+    <script src="../dist/app/home/home.ctrl.js"></script>
+
+    <script src="../dist/app/DLock.js"></script>
+  </body>
+</html>
