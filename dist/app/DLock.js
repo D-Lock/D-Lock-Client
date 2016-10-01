@@ -23,6 +23,13 @@
    */
   function config($stateProvider) {
     var loginState = {
+      name: 'register',
+      url: '/register',
+      templateUrl: 'register/register.html',
+      controller: 'RegisterController'
+    }
+
+    var loginState = {
       name: 'login',
       url: '/login',
       templateUrl: 'login/login.html',
