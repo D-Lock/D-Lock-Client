@@ -3,7 +3,7 @@
 var _ = require('lodash');
 const {
 	app,
-	BrowserWindow,
+  BrowserWindow,
 	crashReporter
 } = require('electron')
 var path = require('path');

@@ -24,7 +24,6 @@
     "skeleton": "2.0.4",
     "angular-mocks": "1.4.9",
     "angular-route": "^1.5.8",
-    "firebase": "^3.4.1",
-    "angularfire": "^2.0.2"
+    "firebase": "^3.4.1"
   }
 }
