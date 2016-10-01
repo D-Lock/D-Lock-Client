@@ -6,13 +6,13 @@
     .module('DLock', [
       'DLock-Home',
       'DLock-Authentication',
-      'ngRoute'
+      'ui.router'
     ])
     .config(config);
 
   // safe dependency injection
   // this prevents minification issues
-  config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider'];
+  config.$inject = ['$stateProvider'];
 
   /**
    * App routing
@@ -21,38 +21,26 @@
    * into separate file
    * 
    */
-  function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
-
-    $locationProvider.html5Mode(false);
-
-    // routes
-    $routeProvider
-      .when('/', {
-        templateUrl: 'home/home.html',
-        controller: 'HomeController'
-      })
-      .when('/login', {
-        templateUrl: 'login/login.html',
-        controller: 'LoginController'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  }
-
-  angular
-    .module('DLock')
-    .run(run);
-
-  run.$inject = ['$rootScope', '$location', 'AuthenticationService'];
-
-  function run($rootScope, $location, Authentication) {
-    //Check authentication on startup
-    if(Authentication.loggedIn) return;
-
-    var route = $location.url();
-    if(route !== "/login") {
-      $location.path('/login');
+  function config($stateProvider) {
+    var loginState = {
+      name: 'login',
+      url: '/login',
+      templateUrl: 'login/login.html',
+      controller: 'LoginController'
     }
+
+    var homeState = {
+      name: 'home',
+      url: '/',
+      templateUrl: 'home/home.html',
+      controller: 'HomeController'
+    }
+
+    $stateProvider
+    .state(loginState)
+    .state(homeState)
+    .state("otherwise", {
+      url: '/'
+    });
   }
 })();

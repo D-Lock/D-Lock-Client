@@ -29,7 +29,7 @@
 
     //When the user is now logged in
     auth.onAuthStateChanged(function(user) {
-      service.loggedIn = user;
+      service.loggedIn = !!user;
       macAddress = $window.mac;
       if(!macAddress) {
         throw "MAC Address is not in the global scope";
@@ -40,19 +40,20 @@
 
     //When the user closes the window
     service.logOut = function() {
-      console.log(macAddress);
-      if(!macAddress) return;
+      if(!macAddress) return auth.signOut();
 
       var userClients = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
       //Remove the client from the online list
       userClients.once("value").then(function(snapshot) {
-        snapshot.forEach(function(macObj) {
+        for(var i = 0; i < snapshot.length; i++) {
           var mac = macObj.val();
           if(mac === macAddress) {
             userClients.child(macObj.key).remove();
+            return auth.signOut();
           }
-        });
+        }
       });
+
     };
 
     return service;
