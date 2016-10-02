@@ -29,6 +29,7 @@
     "angular-socket-io": "^0.7.0",
     "socket.io": "^1.4.8",
     "socket.io-client": "^1.4.8",
-    "angularfire": "^2.0.2"
+    "angularfire": "^2.0.2",
+    "ng-file-upload": "^12.2.12"
   }
 }

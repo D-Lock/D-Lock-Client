@@ -1,15 +1,20 @@
 (function() {
   'use strict';
 
-  angular.module('DLock-Home', ['DLock-Authentication', 'DLock-Files']).
-  controller('HomeController', ['$scope', '$state', 'AuthenticationService', 'FileService', HomeController]);
+  angular.module('DLock-Home', ['DLock-Authentication', 'DLock-Files', 'DLock-Utilities']).
+  controller('HomeController', ['SERVER_URL', '$scope', '$state', '$window', 'AuthenticationService', 'FileService', HomeController]);
 
-  function HomeController($scope, $state, Authentication, FileService) {
+  function HomeController(SERVER_URL, $scope, $state, $window, Authentication, FileService) {
     $scope.loggedIn = Authentication.loggedIn;
     $scope.user = Authentication.user;
     $scope.logOut = Authentication.logOut;
     $scope.logIn = function() {
       $state.go('login');
+    };
+
+    $scope.upload = function() {
+      var file = document.getElementById('fileInput').files[0];
+      FileService.sendFile(file);
     };
 
     //Check for online address changes
@@ -34,7 +39,6 @@
 
         console.log("All clients connected");
         console.log("Authenticating to server");
-        console.log(Authentication.macAddress);
         FileService.authenticateUser({
           email: $scope.user.email,
           mac: Authentication.macAddress
