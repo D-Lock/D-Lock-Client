@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Files', ['DLock-Configuration', 'DLock-Authentication', 'firebase', 'btford.socket-io']).
-  service('FileService', ['FirebaseService', '$window', 'FileSocket', FileService]);
+  service('FileService', ['FILES_REF', 'FirebaseService', '$window', 'FileSocket', FileService]);
 
-  function FileService(FirebaseService, $window, FileSocket) {
+  function FileService(FILES_REF, FirebaseService, $window, FileSocket) {
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
@@ -14,8 +14,10 @@
 
     var delivery = new Delivery(FileSocket);
 
-    service.getFiles = function() {
-      
+    service.getFiles = function(uid) {
+      db.ref(FILES_REF).child(uid).once('value').then(function(filesObj) {
+        var files = filesObj.val();
+      });
     };
 
     service.sendFile = function(file) {
