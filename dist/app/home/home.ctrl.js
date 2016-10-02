@@ -67,7 +67,9 @@
     function checkOnlineMACS(onlineObj) {
       var online = onlineObj.val();
       if(!online) {
-        return $scope.online = false;
+        $scope.online = false;
+        $scope.$apply();
+        return;
       }
       var onlineValues = Object.keys(online).map(function(key) {
         return online[key];
@@ -80,20 +82,30 @@
           return all[key];
         });
         if(totalValues.length > onlineValues.length) {
-          return $scope.online = false;
+          $scope.online = false;
+          $scope.$apply();
+          return;
         }
 
         //Ensure that all of the MAC addresses are in the list
         console.log(onlineValues, totalValues);
         for(var i = 0; i < totalValues.length; i++) {
           var index = onlineValues.indexOf(totalValues[i]);
-          if(index === -1) return $scope.online = false;
+          if(index === -1) {
+            $scope.online = false;
+            $scope.$apply();
+            return;
+          }
 
           onlineValues.splice(index, 1);
         }
 
         if(onlineValues.length !== 0 && totalValues.length !== 0)
-          return $scope.online = false;
+        {
+          $scope.online = false;
+          $scope.$apply();
+          return;
+        }
 
         console.log("All clients connected");
         console.log("Authenticating to server");
