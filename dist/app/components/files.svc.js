@@ -14,10 +14,13 @@
 
     var delivery = new Delivery(FileSocket);
 
-    service.getFiles = function(uid) {
+    service.getFiles = function(uid, cb) {
       db.ref(FILES_REF).child(uid).once('value').then(function(filesObj) {
         var files = filesObj.val();
-        return files;
+        files = Object.keys(files).map(function(key) {
+          return files[key];
+        });
+        cb(files);
       });
     };
 

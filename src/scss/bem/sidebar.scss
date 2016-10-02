@@ -16,6 +16,14 @@
       background-color: darken($dark-highlight, 3%);
     }
 
+    &--offline {
+      color: desaturate(#ff0000, 30%);
+    }
+
+    &--online {
+      color: desaturate(#00ff00, 30%);
+    }
+
     &--login {
       
     }
