@@ -24,7 +24,12 @@
     //Check for online address changes
     if($scope.loggedIn) {
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
-      FileService.getFiles($scope.user.uid, function(files) {
+      FileService.getFiles($scope.user.uid, function(filesObj) {
+        console.log(filesObj);
+        var files = filesObj.val();
+        files = Object.keys(files).map(function(key) {
+          return files[key];
+        });
         $scope.files = files;
         $scope.$apply();
       });
