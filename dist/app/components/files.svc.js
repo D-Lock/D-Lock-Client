@@ -10,9 +10,10 @@
     service.isConnected = false;
     service.isAuthenticated = false;
 
-    Delivery = $window.delivery;
+    var DeliveryClient = $window.deliveryClient;
+    var DeliveryServer = $window.DeliveryServer;
 
-    var delivery = new Delivery(FileSocket);
+    var delivery = new DeliveryClient(FileSocket);
 
     service.getFiles = function(uid, cb) {
       db.ref(FILES_REF).child(uid).once('value').then(function(filesObj) {
@@ -27,6 +28,14 @@
     service.sendFile = function(file) {
       delivery.send(file);
     };
+
+    delivery.on('receive.start', function() {
+      console.log('started receiving');
+    });
+
+    delivery.on('receive.success', function() {
+      console.log('got it');
+    });
 
     delivery.on('send.success',function(fileUID){
       console.log("file was successfully sent.");

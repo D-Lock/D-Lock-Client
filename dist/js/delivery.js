@@ -1,1 +1,2 @@
-window.delivery = Delivery;
+window.deliveryClient = Delivery;
+window.deliveryServer = require('delivery');
