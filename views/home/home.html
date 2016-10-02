@@ -30,7 +30,7 @@
         </form>
       </div>
     </div>
-    <div class="row">
+    <div class="row" ng-if="online">
       <a href="#" class="three columns" ng-repeat="file in files" ng-click="requestFile(file.hash)">
         <div class="file">
             <div class="file__name" ng-bind="file.path"></div>
