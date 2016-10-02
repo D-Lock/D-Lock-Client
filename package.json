@@ -37,6 +37,7 @@
     "babel-jest": "15.0.0",
     "bower": "1.7.9",
     "del": "2.2.2",
+    "delivery": "0.0.5",
     "electron": "^1.4.2",
     "electron-packager": "8.0.0",
     "getmac": "^1.2.1",

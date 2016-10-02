@@ -31,6 +31,7 @@
     &--username {
       display: inline-block;
       vertical-align: middle;
+      overflow-wrap: break-word;
     }
 
     &--avatar {
