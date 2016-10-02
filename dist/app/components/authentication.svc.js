@@ -61,7 +61,7 @@
 
     //When the user closes the window
     service.logOut = function() {
-      if(!macAddress) return auth.signOut();
+      if(typeof macAddress === "undefined") return auth.signOut();
 
       //Remove the client from the online list
       service.onlineAddresses.once("value").then(function(snapshot) {
