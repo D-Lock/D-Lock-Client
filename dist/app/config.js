@@ -8,5 +8,6 @@
       databaseURL: "https://d-lock.firebaseio.com"
     })
     .value('CLIENTS_REF', 'clients/')
+    .value('FILES_REF', 'files/')
     .value('SERVER_URL', 'http://991f3900.ngrok.io/');
 })();

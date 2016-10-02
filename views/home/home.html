@@ -19,7 +19,7 @@
     </ul>
   </div>    
   <div class="nine columns files">
-    <form name="uploadForm">
+    <form name="uploadForm" ng-if="loggedIn">
       <input type="file" id="fileInput" />
       <input type="button" ng-click="upload()" value="Upload" />
     </form>

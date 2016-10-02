@@ -22,5 +22,5 @@
       	$scope.errorText = error.message;
       });
     }
-  }*
+  }
 })();
