@@ -3,9 +3,9 @@
 
   angular.module('DLock-Configuration', [])
     .value('FIREBASE_CONFIG', {
-      apiKey: "AIzaSyD--ACvhpg6AtGFXhdKwMgn8Lv8Q2oMTT4",
-      authDomain: "d-lock.firebaseapp.com",
-      databaseURL: "https://d-lock.firebaseio.com"
+      apiKey: "",
+      authDomain: "",
+      databaseURL: ""
     })
     .value('CLIENTS_REF', 'clients/')
     .value('FILES_REF', 'files/')
