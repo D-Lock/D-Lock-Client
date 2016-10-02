@@ -6,7 +6,7 @@
 
   function ForgotController($scope, $state, $window, Authentication) {
     $scope.forgotCreds = {
-      email: "fake@fake.com",
+      email: "",
     };
 
     $scope.errorText = undefined;

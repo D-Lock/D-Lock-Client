@@ -33,8 +33,9 @@
       console.log('started receiving');
     });
 
-    delivery.on('receive.success', function() {
-      console.log('got it');
+    delivery.on('receive.success', function(file) {
+      console.log(file.name);
+      console.log(file.buffer);
     });
 
     delivery.on('send.success',function(fileUID){

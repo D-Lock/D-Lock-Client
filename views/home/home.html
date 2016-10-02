@@ -7,10 +7,10 @@
       <li class="sidebar__menu-item sidebar__menu-item--online" ng-if="online">
         Online
       </li>
-      <a href="#" ng-if="loggedIn">
+      <a ui-sref="settings" ng-if="loggedIn">
         <li class="sidebar__menu-item sidebar__menu-item--login">
-          <img class="sidebar__menu-item--avatar" src="http://placehold.it/90x90">
-          <div class="sidebar__menu-item--username" ng-bind="user.email"></div>
+          <img class="sidebar__menu-item--avatar" ng-src="http://www.gravatar.com/avatar/{{user.email | gravatar}}">
+          <div class="sidebar__menu-item--username" ng-bind="user.email.substr(0, user.email.indexOf('@'))"></div>
         </li>
       </a>
       <a href="#" ng-click="logIn()" ng-if="!loggedIn">
@@ -19,23 +19,23 @@
       <a href="#" ng-click="logOut()" ng-if="loggedIn">
         <li class="sidebar__menu-item">Log Out</li>
       </a>
-      <a ui-sref="settings" ng-if="loggedIn">
-        <li class="sidebar__menu-item">Settings</li>
-      </a>
     </ul>
   </div>    
   <div class="files">
-    <div class="nine columns">
-      <form name="uploadForm" ng-if="loggedIn">
-        <input type="file" id="fileInput" />
-        <input type="button" ng-click="upload()" value="Upload" />
-      </form>
-    </div>
-    <div class="three columns file" ng-repeat="file in files">
-      <div>
-        <div class="file__name" ng-bind="file.path"></div>
-        <div class="file__extension" ng-bind="file.type"></div>
-        <div class="file__size" ng-bind="humanFileSize(file.size)"></div>
+    <div class="row">
+      <div class="one columns"></div>
+      <div class="nine columns">
+        <form name="uploadForm" ng-if="loggedIn">
+          <input type="file" id="fileInput" />
+          <input type="button" ng-click="upload()" value="Upload" />
+        </form>
+      </div>
+      <div class="three columns file" ng-repeat="file in files">
+        <div>
+          <div class="file__name" ng-bind="file.path"></div>
+          <div class="file__extension" ng-bind="file.type"></div>
+          <div class="file__size" ng-bind="humanFileSize(file.size)"></div>
+        </div>
       </div>
     </div>
   </div>
