@@ -1,5 +1,12 @@
 .file {
+  padding: 1em;
+  background-color: $light-lowlight;
+  color: $dark-highlight;
+
+
   &__name {
     font-size: 1.2em;
+    font-weight: bold;
+    line-height: 0.5em;
   }  
 }

@@ -36,6 +36,13 @@
       controller: 'ForgotController'
     }
 
+    var settingsState = {
+      name: 'settings',
+      url: '/settings',
+      templateUrl: 'settings/settings.html',
+      controller: 'SettingsController'
+    }
+
     var loginState = {
       name: 'login',
       url: '/login',
@@ -55,6 +62,7 @@
     .state(registerState)
     .state(homeState)
     .state(forgotState)
+    .state(settingsState)
     .state("otherwise", {
       url: '/'
     });
