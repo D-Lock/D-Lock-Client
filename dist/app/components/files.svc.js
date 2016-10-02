@@ -2,30 +2,29 @@
   'use strict';
 
   angular.module('DLock-Files', ['DLock-Configuration', 'DLock-Authentication', 'firebase', 'btford.socket-io']).
-  service('FileService', ['FILES_REF', 'FirebaseService', '$window', 'FileSocket', FileService]);
+  service('FileService', ['FILES_REF', 'PART_DIR', 'FirebaseService', '$window', 'FileSocket', FileService]);
 
-  function FileService(FILES_REF, FirebaseService, $window, FileSocket) {
+  function FileService(FILES_REF, PART_DIR, FirebaseService, $window, FileSocket) {
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
     service.isAuthenticated = false;
 
     var DeliveryClient = $window.deliveryClient;
-    var DeliveryServer = $window.DeliveryServer;
+    var fs = $window.fs;
+    var mkdir = $window.mkdir;
+    var partsDir = $window.home + PART_DIR;
 
     var delivery = new DeliveryClient(FileSocket);
 
     service.getFiles = function(uid, cb) {
-      db.ref(FILES_REF).child(uid).once('value').then(function(filesObj) {
-        var files = filesObj.val();
-        files = Object.keys(files).map(function(key) {
-          return files[key];
-        });
-        cb(files);
-      });
+      db.ref(FILES_REF).child(uid).on('value', cb);
     };
 
     service.sendFile = function(file) {
+      file.params = {
+        mode: 'upload'
+      };
       delivery.send(file);
     };
 
@@ -34,8 +33,13 @@
     });
 
     delivery.on('receive.success', function(file) {
-      console.log(file.name);
-      console.log(file.buffer);
+      mkdir(partsDir, function(err) {
+        if (err) return console.error(err);
+
+        fs.writeFile(partsDir + file.name, file.buffer, function(err) {
+          if (err) return console.error(err);
+        });
+      });
     });
 
     delivery.on('send.success',function(fileUID){

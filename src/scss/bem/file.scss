@@ -1,12 +1,20 @@
 .file {
   padding: 1em;
-  background-color: $light-lowlight;
-  color: $dark-highlight;
+  background-color: $light-highlight;
+  color: $white;
+  height: 8em;
 
+  a {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: darken($light-highlight, 5%); 
+  }
 
   &__name {
     font-size: 1.2em;
     font-weight: bold;
-    line-height: 0.5em;
-  }  
+    line-height: 0.8em;
+  }
 }
