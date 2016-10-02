@@ -28,7 +28,7 @@
     FileSocket.on('request.part', function(params) {
       fs.readFile(partsDir + params.fileName, function(err, data) {
         if (err) return console.error(err);
-        service.sendPart(params.hash, params.fileName, partsDir + params.fileName);
+        service.sendPart(params.hash, params.userId, params.fileName, partsDir + params.fileName);
       });
     });
 
@@ -39,7 +39,7 @@
       delivery.send(file);
     };
 
-    service.sendPart = function(hash, fileName, filePath) {
+    service.sendPart = function(hash, userId, fileName, filePath) {
       var part = {
         name: fileName,
         path: filePath,
@@ -52,13 +52,19 @@
     };
 
     delivery.on('receive.success', function(file) {
-      mkdir(partsDir, function(err) {
-        if (err) return console.error(err);
-
-        fs.writeFile(partsDir + file.name, file.buffer, function(err) {
+      if(file.params.mode === "download") {
+        fs.writeFile($window.home + "/Downloads/" + file.name, file.buffer, function(err) {
           if (err) return console.error(err);
         });
-      });
+      } else if (file.params.mode === "part") {
+        mkdir(partsDir, function(err) {
+          if (err) return console.error(err);
+
+          fs.writeFile(partsDir + file.name, file.buffer, function(err) {
+            if (err) return console.error(err);
+          });
+        });
+      }
     });
 
     delivery.on('send.success',function(fileUID){
