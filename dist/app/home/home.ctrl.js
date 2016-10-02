@@ -10,7 +10,7 @@
     $scope.loggedIn = Authentication.loggedIn;
     $scope.user = Authentication.user;
     $scope.logOut = Authentication.logOut;
-    $scope.allConnected = false;
+    $scope.online = false;
 
     $scope.logIn = function() {
       $state.go('login');
@@ -24,7 +24,10 @@
     //Check for online address changes
     if($scope.loggedIn) {
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
-      $scope.files = FileService.getFiles($scope.user.uid);
+      FileService.getFiles($scope.user.uid, function(files) {
+        $scope.files = files;
+        $scope.$apply();
+      });
     }
 
     function checkOnlineMACS(onlineObj) {
@@ -40,13 +43,13 @@
           return all[key];
         });
         if(totalValues.length > onlineValues.length) {
-          return $scope.allConnected = false;
+          return $scope.online = false;
         }
 
         //Ensure that all of the MAC addresses are in the list
         for(var i = 0; i < totalValues.length; i++) {
           if(onlineValues.indexOf(totalValues[i]) === -1) {
-            return $scope.allConnected = false;
+            return $scope.online = false;
           }
         }
 
@@ -56,7 +59,7 @@
           id: $scope.user.uid,
           mac: Authentication.macAddress
         });
-        $scope.allConnected = true;
+        $scope.online = true;
       });
     }
   }

@@ -1,6 +1,12 @@
 <div class="row full-height">
   <div class="three columns sidebar">
     <ul class="sidebar__menu">
+      <li class="sidebar__menu-item sidebar__menu-item--offline" ng-if="!online">
+        Offline
+      </li>
+      <li class="sidebar__menu-item sidebar__menu-item--online" ng-if="online">
+        Online
+      </li>
       <a href="#" ng-if="loggedIn">
         <li class="sidebar__menu-item sidebar__menu-item--login">
           <img class="sidebar__menu-item--avatar" src="http://placehold.it/90x90">
@@ -26,10 +32,10 @@
       </form>
     </div>
     <div class="nine columns">
-      <div class="file">
-        <div class="file__name">File</div>
-        <div class="file__extension">JPEG</div>
-        <div class="file__size">10kb</div>
+      <div class="file" ng-repeat="file in files">
+        <div class="file__name" ng-bind="file.path"></div>
+        <div class="file__extension" ng-bind="file.type"></div>
+        <div class="file__size" ng-bind="file.size"></div>
       </div>
     </div>
   </div>

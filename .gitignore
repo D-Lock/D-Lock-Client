@@ -5,4 +5,5 @@ npm-debug.log
 node_modules/
 jspm_packages/
 dist/vendor/
+dist/css/d-lock.css
 *.sublime-workspace
