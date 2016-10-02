@@ -9,12 +9,19 @@
 
     $scope.loggedIn = Authentication.loggedIn;
     $scope.user = Authentication.user;
-    $scope.logOut = Authentication.logOut;
     $scope.online = false;
 
     $scope.logIn = function() {
       $state.go('login');
     };
+
+    $scope.logOut = function() {
+      Authentication.logOut().then(function() {
+        $scope.loggedIn = Authentication.loggedIn;
+        $scope.user = Authentication.user;
+        $scope.$apply();
+      });
+    }
 
     $scope.upload = function() {
       var file = document.getElementById('fileInput').files[0];
@@ -25,14 +32,17 @@
     if($scope.loggedIn) {
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
       FileService.getFiles($scope.user.uid, function(filesObj) {
-        console.log(filesObj);
         var files = filesObj.val();
-        files = Object.keys(files).map(function(key) {
-          var file = files[key];
-          file.hash = key;
-          return file;
-        });
-        $scope.files = files;
+        if(files !== null) {
+          files = Object.keys(files).map(function(key) {
+            var file = files[key];
+            file.hash = key;
+            return file;
+          });
+          $scope.files = files;
+        } else {
+          $scope.files = undefined;
+        }
         $scope.$apply();
       });
       $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
@@ -56,6 +66,9 @@
 
     function checkOnlineMACS(onlineObj) {
       var online = onlineObj.val();
+      if(!online) {
+        return $scope.online = false;
+      }
       var onlineValues = Object.keys(online).map(function(key) {
         return online[key];
       });
@@ -71,11 +84,16 @@
         }
 
         //Ensure that all of the MAC addresses are in the list
+        console.log(onlineValues, totalValues);
         for(var i = 0; i < totalValues.length; i++) {
-          if(onlineValues.indexOf(totalValues[i]) === -1) {
-            return $scope.online = false;
-          }
+          var index = onlineValues.indexOf(totalValues[i]);
+          if(index === -1) return $scope.online = false;
+
+          onlineValues.splice(index, 1);
         }
+
+        if(onlineValues.length !== 0 && totalValues.length !== 0)
+          return $scope.online = false;
 
         console.log("All clients connected");
         console.log("Authenticating to server");
