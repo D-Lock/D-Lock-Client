@@ -6,8 +6,8 @@
 
   function RegisterController($scope, $state, $window, Authentication) {
     $scope.registerCreds = {
-      email: "test@test.com",
-      password: "password"
+      email: "",
+      password: ""
     };
 
     $scope.errorText = undefined;

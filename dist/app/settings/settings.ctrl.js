@@ -5,7 +5,7 @@
   controller('SettingsController', ['$scope', '$state', '$window', 'AuthenticationService', SettingsController]);
 
   function SettingsController($scope, $state, $window, Authentication) {
-  	$scope.clients = undefined;
+    $scope.clients = [];
 
     $scope.loggedIn = Authentication.loggedIn;
 
@@ -13,14 +13,14 @@
       Authentication.allAddresses.on('value', getClientList);
     }
 
-		function getClientList(onlineObj) {
-		  var clientList = onlineObj.val();
+    function getClientList(onlineObj) {
+      var clientList = onlineObj.val();
 
-		  var clientValues = Object.keys(clientList).map(function(key) {
-		    return clientList[key];
-		  });
-		  $scope.clients = clientValues;
-		  $scope.$apply();
-		}
+      var clientValues = Object.keys(clientList).map(function(key) {
+        return clientList[key];
+      });
+      $scope.clients = clientValues;
+      $scope.$apply();
+    }
   }
 })();

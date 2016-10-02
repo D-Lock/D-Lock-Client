@@ -1,10 +1,10 @@
 (function() {
   'use strict';
 
-  angular.module('DLock-Home', ['DLock-Authentication', 'DLock-Files', 'DLock-Utilities']).
-  controller('HomeController', ['SERVER_URL', '$scope', '$state', '$window', 'AuthenticationService', 'FileService', HomeController]);
+  angular.module('DLock-Home', ['DLock-Authentication', 'DLock-Files', 'DLock-Utilities', 'angular-md5']).
+  controller('HomeController', ['SERVER_URL', '$scope', '$state', '$window', 'AuthenticationService', 'FileService', 'md5', HomeController]);
 
-  function HomeController(SERVER_URL, $scope, $state, $window, Authentication, FileService) {
+  function HomeController(SERVER_URL, $scope, $state, $window, Authentication, FileService, MD5) {
     $scope.files = undefined;
 
     $scope.loggedIn = Authentication.loggedIn;
@@ -28,6 +28,7 @@
         $scope.files = files;
         $scope.$apply();
       });
+      $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
     }
 
     $scope.humanFileSize = function(bytes) {
