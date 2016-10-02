@@ -28,13 +28,17 @@
         console.log(filesObj);
         var files = filesObj.val();
         files = Object.keys(files).map(function(key) {
-          return files[key];
+          var file = files[key];
+          file.hash = key;
+          return file;
         });
         $scope.files = files;
         $scope.$apply();
       });
       $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
     }
+
+    $scope.requestFile = FileService.requestFile;
 
     $scope.humanFileSize = function(bytes) {
       var thresh = 1000;

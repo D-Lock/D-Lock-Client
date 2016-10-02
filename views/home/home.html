@@ -30,7 +30,7 @@
           <input type="button" ng-click="upload()" value="Upload" />
         </form>
       </div>
-      <a href="#" class="three columns" ng-repeat="file in files">
+      <a href="#" class="three columns" ng-repeat="file in files" ng-click="requestFile(file.hash)">
         <div class="file">
             <div class="file__name" ng-bind="file.path"></div>
             <div class="file__extension" ng-bind="file.type"></div>

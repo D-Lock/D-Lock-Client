@@ -21,6 +21,17 @@
       db.ref(FILES_REF).child(uid).on('value', cb);
     };
 
+    service.requestFile = function(hash) {
+      FileSocket.emit('request.file', hash);
+    };
+
+    FileSocket.on('request.part', function(params) {
+      fs.readFile(partsDir + params.fileName, function(err, data) {
+        if (err) return console.error(err);
+        service.sendPart(params.hash, params.fileName, partsDir + params.fileName);
+      });
+    });
+
     service.sendFile = function(file) {
       file.params = {
         mode: 'upload'
@@ -28,9 +39,17 @@
       delivery.send(file);
     };
 
-    delivery.on('receive.start', function() {
-      console.log('started receiving');
-    });
+    service.sendPart = function(hash, fileName, filePath) {
+      var part = {
+        name: fileName,
+        path: filePath,
+        params: {
+          mode: 'part',
+          hash: hash
+        }
+      };
+      delivery.send(part);
+    };
 
     delivery.on('receive.success', function(file) {
       mkdir(partsDir, function(err) {
@@ -52,6 +71,10 @@
 
     FileSocket.on('disconnect', function(ev, data) {
       service.isConnected = false;
+    });
+
+    FileSocket.on('request.part', function(fileName) {
+
     });
     
     service.authenticateUser = function(user) {
