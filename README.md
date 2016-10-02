@@ -1,3 +1,4 @@
+![alt tag](https://cdn.discordapp.com/attachments/231497949006266369/232176166587334656/full-01.png)
 # D-Lock-Client
 With growing technologies such as Ceph by Red Hat and the Hadoop Distributed File System, the idea of distributing files over multiple hardware devices has garnered a strong following in recent years. We wanted to spread this rapid expansion with everyday consumers. We hoped to give users a secure and redundant way of managing private files.
 
