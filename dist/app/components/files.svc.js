@@ -17,6 +17,7 @@
     service.getFiles = function(uid) {
       db.ref(FILES_REF).child(uid).once('value').then(function(filesObj) {
         var files = filesObj.val();
+        return files;
       });
     };
 
@@ -39,10 +40,6 @@
     service.authenticateUser = function(user) {
       FileSocket.emit('user.info', user);
       service.isAuthenticated = true;
-    }
-
-    service.sendFiles = function() {
-
     }
 
     return service;

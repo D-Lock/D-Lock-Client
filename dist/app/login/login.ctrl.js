@@ -6,7 +6,7 @@
 
   function LoginController($scope, $state, $window, Authentication) {
     $scope.loginCreds = {
-      email: "example@email.com",
+      email: "redbackthomson@hotmail.com",
       password: "password"
     };
 
