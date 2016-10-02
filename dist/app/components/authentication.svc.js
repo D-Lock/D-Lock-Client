@@ -31,6 +31,24 @@
       return signIn;
     };
 
+    service.register = function(email, password) {
+      var signUp = auth.createUserWithEmailAndPassword(email, password);
+      signUp.catch(function (error) {
+        console.error(error.code);
+        console.error(error.message);
+      });
+      return signUp;
+    }
+
+    service.forgot = function(email){
+      var reset = auth.sendPasswordResetEmail(email);
+      reset.catch(function (error) {
+        console.error(error.code);
+        console.error(error.message);
+      });
+      return reset;
+    }
+
     //When the user is now logged in
     auth.onAuthStateChanged(function(user) {
       service.loggedIn = !!user;

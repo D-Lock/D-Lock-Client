@@ -1,0 +1,15 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="five columns">
+        <label for="Email">Email</label>
+        <input class="u-full-width" type="email" placeholder="Email" id="Email" ng-model="forgotCreds.email">
+      </div>
+      <div class="two columns">
+        <label for="exampleEmailInput">&nbsp;</label>
+        <input class="button-primary" type="submit" value="Sign Up" ng-click="forgot()">
+      </div>
+      <div class="twelve columns" ng-bind="errorText"></div>
+    </div>
+  </form>
+</div>
