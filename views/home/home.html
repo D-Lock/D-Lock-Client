@@ -19,7 +19,7 @@
       <a href="#" ng-click="logOut()" ng-if="loggedIn">
         <li class="sidebar__menu-item">Log Out</li>
       </a>
-      <a href="#">
+      <a href="ui-sref=settings">
         <li class="sidebar__menu-item">Settings</li>
       </a>
     </ul>
@@ -31,11 +31,11 @@
         <input type="button" ng-click="upload()" value="Upload" />
       </form>
     </div>
-    <div class="nine columns">
-      <div class="file" ng-repeat="file in files">
+    <div class="three columns file" ng-repeat="file in files">
+      <div>
         <div class="file__name" ng-bind="file.path"></div>
         <div class="file__extension" ng-bind="file.type"></div>
-        <div class="file__size" ng-bind="file.size"></div>
+        <div class="file__size" ng-bind="humanFileSize(file.size)"></div>
       </div>
     </div>
   </div>
