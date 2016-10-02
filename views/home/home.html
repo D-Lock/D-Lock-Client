@@ -19,7 +19,7 @@
       <a href="#" ng-click="logOut()" ng-if="loggedIn">
         <li class="sidebar__menu-item">Log Out</li>
       </a>
-      <a href="ui-sref=settings">
+      <a ui-sref="settings" ng-if="loggedIn">
         <li class="sidebar__menu-item">Settings</li>
       </a>
     </ul>
