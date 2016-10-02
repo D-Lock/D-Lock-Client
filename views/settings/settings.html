@@ -1,8 +1,17 @@
 <div class="container">
   <form>
     <div class="row">
-      <div class="five columns">
+      <div class="eight columns">
         <label for="Settings">Settings</label>
+      </div>
+      <div class="four columns">
+        <a ui-sref="home">Back</a>
+      </div>
+      <div class="twelve columns">Clients</div>
+      <div class="twelve columns client" ng-repeat="client in clients">
+        <div>
+          <div class="client__mac" ng-bind="client"></div>
+        </div>
       </div>
       <div class="twelve columns" ng-bind="errorText"></div>
     </div>
