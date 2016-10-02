@@ -22,11 +22,18 @@
    * 
    */
   function config($stateProvider) {
-    var loginState = {
+    var registerState = {
       name: 'register',
       url: '/register',
       templateUrl: 'register/register.html',
       controller: 'RegisterController'
+    }
+
+    var forgotState = {
+      name: 'forgot',
+      url: '/forgot',
+      templateUrl: 'forgot/forgot.html',
+      controller: 'ForgotController'
     }
 
     var loginState = {
@@ -45,7 +52,9 @@
 
     $stateProvider
     .state(loginState)
+    .state(registerState)
     .state(homeState)
+    .state(forgotState)
     .state("otherwise", {
       url: '/'
     });
