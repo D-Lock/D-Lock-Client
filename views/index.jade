@@ -1,0 +1,42 @@
+doctype html
+html(ng-app='DLock')
+  head
+    title D-Lock
+    // bower:css
+    link(rel='stylesheet', href='../vendor/foundation-sites/dist/foundation-flex.min.css')
+    link(rel='stylesheet', href='../vendor/highlightjs/styles/default.css')
+    // endbower
+    // CUSTOM CSS
+    link(rel='stylesheet', href='../css/d-lock.css')
+
+  body
+    .title-bar
+    .row.full-height
+      div(ui-view="side-nav")
+      .columns.content
+        div(ui-view="content-header")
+        ui-view
+
+    // REQUIRED
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='../jspm_packages/system.js')
+    script(src='../js/fileSystem.js')
+    script(src='../js/getMacAddress.js')
+
+    // Bower
+    script(src='../vendor/angular/angular.js')
+    script(src='../vendor/angular-ui-router/release/angular-ui-router.min.js')
+    script(src='../vendor/angular-mocks/angular-mocks.js')
+    script(src='../vendor/angular-route/angular-route.js')
+    script(src='../vendor/firebase/firebase.js')
+    script(src='../vendor/angularfire/dist/angularfire.js')
+    script(src='../vendor/socket.io-client/socket.io.js')
+    script(src='../vendor/angular-socket-io/socket.min.js')
+    script(src='../vendor/angular-md5/angular-md5.min.js')
+    script(src='../../node_modules/delivery/lib/client/delivery.js')
+    script(src='../../node_modules/delivery/lib/delivery.server.js')
+    script(src='../js/delivery.js')
+    script(src='../app/config.js')
+
+    // Dlock
+    script(src='../js/build/dlock.js')

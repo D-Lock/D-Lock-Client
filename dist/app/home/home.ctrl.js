@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('DLock-Home', ['DLock-Authentication', 'DLock-Files', 'DLock-Utilities', 'angular-md5']).
+  angular.module('DLock-Home').
   controller('HomeController', ['SERVER_URL', '$scope', '$state', '$window', 'AuthenticationService', 'FileService', 'md5', HomeController]);
 
   function HomeController(SERVER_URL, $scope, $state, $window, Authentication, FileService, MD5) {

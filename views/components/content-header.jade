@@ -1,0 +1,5 @@
+.content__header
+  ul.content__header-items(ng-if="user")
+    li.content__header-item
+      img(src="http://www.gravatar.com/avatar/{{ user.email | gravatar }}").content__header-image
+      a(href="#", ng-bind="user.email") RedbackThomson

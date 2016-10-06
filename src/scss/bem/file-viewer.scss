@@ -1,0 +1,41 @@
+.file-viewer {
+  margin: 15px 15px 0;
+  background: light-gradient($body-highlight-bg);
+  border-radius: $border-radius;
+  box-shadow: bottom-shadow(1), top-shadow(1);
+  padding: 15px;
+  
+  &__image {
+    max-width: 125px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    border-bottom: 1px solid transparentize($accent-color, 0.8);
+  }
+  
+  &__description {
+    max-width: 125px;
+    text-align: center;
+    margin: 0 auto 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid transparentize($accent-color, 0.8);
+  }
+  
+  &__name {
+    color: $accent-color;
+  }
+  
+  &__info {
+    font-size: 0.8em;
+  }
+  
+  &__size {
+    display: inline;
+    padding-right: 10px;
+  }
+  
+  &__type {
+    display: inline;
+    padding-left: 10px;
+  }
+}

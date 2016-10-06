@@ -11,8 +11,20 @@ const plugins = gulpLoadPlugins();
 const sassRoot = 'src/scss/';
 const cssRoot = 'dist/css/';
 
-const views = 'views/**/*.html';
+const angular = 'dist/app/**/*.js';
+const angularOrder = [
+  'dist/app/DLock.js', 
+  'dist/app/config.js', 
+  'dist/app/modules.js', 
+  angular
+];
+const outputAngular = 'dist/js/build/';
+
+const views = 'views/**/*.jade';
 const viewsRoot = 'views/';
+
+const outputViews = 'dist/views/**/*.html';
+const outputViewsRoot = 'dist/views/';
 
 function handleError(err) {
   console.log(err.toString());
@@ -28,12 +40,18 @@ gulp.task('clean:styles', (cb) => {
 });
 
 gulp.task('inject-dependencies', function() {
-  return gulp.src(views)
+  return gulp.src(outputViews)
     .pipe(wiredep())
     .pipe(plugins.rename(function(path) {
       path.extname = '.html';
     }))
-    .pipe(gulp.dest(viewsRoot));
+    .pipe(gulp.dest(outputViewsRoot));
+});
+
+gulp.task('build-views', () => {
+  return gulp.src(views)
+    .pipe(plugins.jade())
+    .pipe(gulp.dest(outputViewsRoot))
 });
 
 gulp.task('build-sass', () => {
@@ -49,20 +67,27 @@ gulp.task('build-sass', () => {
     .pipe(gulp.dest(cssRoot));
 });
 
-// ############################################################################################
-// ############################################################################################
-
-gulp.task('watch-sass', () => {
-  plugins.notify('Sass Stream is Active...');
-  gulp.watch(sassRoot+'/**/*.scss', ['build-sass']);
+gulp.task('package-angular', () => {
+  return gulp.src(angularOrder)
+    .pipe(plugins.concat('dlock.js'))
+    .pipe(gulp.dest(outputAngular));
 });
 
 // ############################################################################################
 // ############################################################################################
 
-gulp.task('default', ['build-sass', 'inject-dependencies', 'watch-sass'], () => {
+gulp.task('watch', () => {
+  plugins.notify('Sass/Views/Angular Watch is Active...');
+  gulp.watch(sassRoot+'/**/*.scss', ['build-sass']);
+  gulp.watch(views, ['build-views']);
+  gulp.watch(angular, ['package-angular']);
+});
+
+// ############################################################################################
+// ############################################################################################
+
+gulp.task('default', ['build-sass', 'package-angular', 'build-views', 'inject-dependencies', 'watch'], () => {
   gutil.log('Transposing Sass...');
 });
 
 gulp.task('clean', ['clean:styles']);
-gulp.task('watch', ['watch-sass']);
