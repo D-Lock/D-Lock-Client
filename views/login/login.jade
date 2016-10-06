@@ -1,0 +1,17 @@
+.container
+  form
+    .row
+      .five.columns
+        label(for='Email') Email
+        input#Email.u-full-width(type='email', placeholder='Email', ng-model='loginCreds.email')
+      .five.columns
+        label(for='Username') Password
+        input#Password.u-full-width(type='password', placeholder='Password', ng-model='loginCreds.password')
+      .two.columns
+        label  
+        input.button-primary(type='submit', value='Login', ng-click='login()')
+      .row
+        .five.columns
+          input.button-primary.u-full-width(type='submit', value='Register', ui-sref='register')
+        .five.columns
+          input.button-primary.u-full-width(type='submit', value='Forgot Password?', ui-sref='forgot')

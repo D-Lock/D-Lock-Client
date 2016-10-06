@@ -1,0 +1,48 @@
+.content {
+  background: light-gradient($content-background, 10%);
+  box-shadow: bottom-shadow(3), top-shadow(3);
+  border-radius: 0 $border-radius 0 0;
+  height: 100%;
+  padding: 0;
+  
+  &__header {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    background: light-gradient($accent-color, 5%);
+    box-shadow: bottom-shadow(1), top-shadow(1);
+    border-radius: 0 $border-radius 0 0;
+    
+    &-items {
+      float: right;
+      list-style: none;
+      height: 100%;
+      margin-bottom: 0;
+    }
+    
+    &-image {
+      max-height: 40px;
+      margin-right: 15px;
+      margin-bottom: 3px;
+      border-radius: 100%;
+    }
+    
+    &-item {
+      display: inline;
+      color: $white;
+      line-height: 5.0em;
+      margin-right: 20px;
+      
+      a {
+        color: $white;
+      }
+      
+      &--icon {
+        i {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

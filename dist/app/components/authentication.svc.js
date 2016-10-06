@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('DLock-Authentication', ['DLock-Configuration', 'DLock-Utilities', 'firebase']).
+  angular.module('DLock-Authentication').
   service('AuthenticationService', ['FirebaseService', 'CLIENTS_REF', '$window', AuthenticationService]);
 
   function AuthenticationService(FirebaseService, CLIENTS_REF, $window) {

@@ -22,47 +22,49 @@
    * 
    */
   function config($stateProvider) {
-    var registerState = {
-      name: 'register',
-      url: '/register',
-      templateUrl: 'register/register.html',
-      controller: 'RegisterController'
-    }
-
-    var forgotState = {
-      name: 'forgot',
-      url: '/forgot',
-      templateUrl: 'forgot/forgot.html',
-      controller: 'ForgotController'
-    }
-
-    var settingsState = {
-      name: 'settings',
-      url: '/settings',
-      templateUrl: 'settings/settings.html',
-      controller: 'SettingsController'
-    }
-
-    var loginState = {
+    $stateProvider
+    .state({
       name: 'login',
       url: '/login',
       templateUrl: 'login/login.html',
       controller: 'LoginController'
-    }
-
-    var homeState = {
+    })
+    .state({
+      name: 'login.forgot',
+      url: '/forgot',
+      templateUrl: 'forgot/forgot.html',
+      controller: 'ForgotController'
+    })
+    .state({
+      name: 'login.register',
+      url: '/register',
+      templateUrl: 'register/register.html',
+      controller: 'RegisterController'
+    })
+    .state({
       name: 'home',
       url: '/',
-      templateUrl: 'home/home.html',
-      controller: 'HomeController'
-    }
-
-    $stateProvider
-    .state(loginState)
-    .state(registerState)
-    .state(homeState)
-    .state(forgotState)
-    .state(settingsState)
+      views: {
+        'content-header': {
+          templateUrl: 'components/content-header.html',
+          controller: 'HeaderController'
+        },
+        'side-nav': {
+          templateUrl: 'components/side-nav.html',
+          controller: 'NavController'
+        },
+        '@': {
+          templateUrl: 'home/home.html',
+          controller: 'HomeController'
+        }
+      }
+    })
+    .state({
+      name: 'home.settings',
+      url: '/settings',
+      templateUrl: 'settings/settings.html',
+      controller: 'SettingsController'
+    })
     .state("otherwise", {
       url: '/'
     });

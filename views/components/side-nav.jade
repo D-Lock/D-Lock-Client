@@ -1,0 +1,27 @@
+.columns.side-nav
+  ul.side-nav__buttons
+    li.side-nav__link.side-nav__link--top 
+      i.material-icons lock
+      span.side-nav__link-text D-Loc
+    li.side-nav__link(ui-sref="login", ng-if="!loggedIn")
+      i.material-icons input
+      span.side-nav__link-text Log In
+    li.side-nav__link(ng-click="logOut()", ng-if="loggedIn")
+      i.material-icons exit_to_app
+      span.side-nav__link-text Log Out
+    li.side-nav__link(ng-if="loggedIn")
+      i.material-icons settings_applications
+      span.side-nav__link-text Settings
+    li.side-nav__link(ng-if="loggedIn")
+      i.material-icons cloud
+      span.side-nav__link-text Files
+    li.side-nav__link(ng-if="loggedIn")
+      i.material-icons group
+      span.side-nav__link-text Sharing
+  .side-nav__collapse
+    i.side-nav__collapse-button.material-icons chevron_left
+  .side-nav__expand
+    i.side-nav__expand-button.material-icons chevron_right
+
+//Scripts
+script(src='../js/ui/sideNav.js')

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('DLock-Files', ['DLock-Configuration', 'DLock-Authentication', 'firebase', 'btford.socket-io']).
+  angular.module('DLock-Files').
   service('FileService', ['FILES_REF', 'PART_DIR', 'FirebaseService', '$window', 'FileSocket', FileService]);
 
   function FileService(FILES_REF, PART_DIR, FirebaseService, $window, FileSocket) {

@@ -1,0 +1,39 @@
+.file-list
+  .file-list__header
+    .file-list__header-text Files
+  .file-list__container
+    .file-list__section
+      ul.file-list__files
+        li.file-list__file.file-list__file--folder.file-list__file--active Private Photographs
+        li.file-list__file My Social Security Number.docx
+    .file-list__section
+      ul.file-list__files
+        li.file-list__file.file-list__file--active Photograph 1.jpg
+        li.file-list__file 2.jpg
+        li.file-list__file 3.jpg
+        li.file-list__file 4.jpg
+        li.file-list__file 5.jpg
+        li.file-list__file 6.jpg
+        li.file-list__file 7.jpg
+        li.file-list__file 8.jpg
+      
+.small-12.columns.file-viewer
+  .row
+    .small-6.large-3.columns
+      .file-viewer__image
+        img(src="http://i.imgur.com/fbO2eDj.png")
+      .file-viewer__description
+        .file-viewer__name Photograph 1
+        .file-viewer__info
+          .file-viewer__size 64kB
+          .file-viewer__type JPEG
+      .download-button-group(href="#")
+        .download-button__text
+          | &#xE876
+        .download-button.button
+          | Download
+          .download-button__progress
+              
+// UI Scripts
+script(src='../js/ui/downloadButton.js')
+script(src='../js/ui/fileList.js')
