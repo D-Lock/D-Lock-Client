@@ -24,26 +24,48 @@
   function config($stateProvider) {
     $stateProvider
     .state({
-      name: 'login',
-      url: '/login',
-      templateUrl: 'login/login.html',
-      controller: 'LoginController'
+      name: 'index',
+      url: '/',
+      views: {
+        'content-header': {
+          templateUrl: 'components/content-header.html',
+          controller: 'HeaderController'
+        },
+        'side-nav': {
+          templateUrl: 'components/side-nav.html',
+          controller: 'NavController'
+        },
+        '@': {
+          templateUrl: 'index/index.html',
+          controller: 'IndexController'
+        }
+      }
     })
     .state({
-      name: 'login.forgot',
+      name: 'index.login',
+      url: '/login',
+      views: {
+        '@': {
+          templateUrl: 'login/login.html',
+          controller: 'LoginController'
+        }
+      }
+    })
+    .state({
+      name: 'index.login.forgot',
       url: '/forgot',
       templateUrl: 'forgot/forgot.html',
       controller: 'ForgotController'
     })
     .state({
-      name: 'login.register',
+      name: 'index.login.register',
       url: '/register',
       templateUrl: 'register/register.html',
       controller: 'RegisterController'
     })
     .state({
       name: 'home',
-      url: '/',
+      url: '/home',
       views: {
         'content-header': {
           templateUrl: 'components/content-header.html',

@@ -38,16 +38,6 @@ gulp.task('clean:styles', (cb) => {
     '**/.sass-cache/**',
   ], cb);
 });
-
-gulp.task('inject-dependencies', function() {
-  return gulp.src(outputViews)
-    .pipe(wiredep())
-    .pipe(plugins.rename(function(path) {
-      path.extname = '.html';
-    }))
-    .pipe(gulp.dest(outputViewsRoot));
-});
-
 gulp.task('build-views', () => {
   return gulp.src(views)
     .pipe(plugins.jade())
@@ -86,7 +76,7 @@ gulp.task('watch', () => {
 // ############################################################################################
 // ############################################################################################
 
-gulp.task('default', ['build-sass', 'package-angular', 'build-views', 'inject-dependencies', 'watch'], () => {
+gulp.task('default', ['build-sass', 'package-angular', 'build-views', 'watch'], () => {
   gutil.log('Transposing Sass...');
 });
 
