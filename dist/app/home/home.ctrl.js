@@ -11,18 +11,6 @@
     $scope.user = Authentication.user;
     $scope.online = false;
 
-    $scope.logIn = function() {
-      $state.go('login');
-    };
-
-    $scope.logOut = function() {
-      Authentication.logOut().then(function() {
-        $scope.loggedIn = Authentication.loggedIn;
-        $scope.user = Authentication.user;
-        $scope.$apply();
-      });
-    }
-
     $scope.upload = function() {
       var file = document.getElementById('fileInput').files[0];
       FileService.sendFile(file);
@@ -88,7 +76,6 @@
         }
 
         //Ensure that all of the MAC addresses are in the list
-        console.log(onlineValues, totalValues);
         for(var i = 0; i < totalValues.length; i++) {
           var index = onlineValues.indexOf(totalValues[i]);
           if(index === -1) {

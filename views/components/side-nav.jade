@@ -3,11 +3,11 @@
     li.side-nav__link.side-nav__link--top 
       i.material-icons lock
       span.side-nav__link-text D-Loc
-    li.side-nav__link(ui-sref="login", ng-if="!loggedIn")
+    li.side-nav__link(ui-sref="index.login", ng-if="!loggedIn")
       i.material-icons input
       span.side-nav__link-text Log In
     li.side-nav__link(ng-click="logOut()", ng-if="loggedIn")
-      i.material-icons exit_to_app
+      i.material-icons power_settings_new
       span.side-nav__link-text Log Out
     li.side-nav__link(ng-if="loggedIn")
       i.material-icons settings_applications

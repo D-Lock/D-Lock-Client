@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Home').
-  controller('NavController', ['$scope', 'AuthenticationService', NavController]);
+  controller('NavController', ['$scope', '$state', 'AuthenticationService', NavController]);
 
-  function NavController($scope, AuthenticationService) {
+  function NavController($scope, $state, AuthenticationService) {
     $scope.user = null;
     $scope.loggedIn = false;
     
@@ -14,5 +14,15 @@
       $scope.user = user;
       $scope.loggedIn = AuthenticationService.loggedIn;
     });
+
+    $scope.logOut = function() {
+      AuthenticationService.logOut().then(function() {
+        $scope.loggedIn = AuthenticationService.loggedIn;
+        $scope.user = AuthenticationService.user;
+        $scope.$apply();
+
+        $state.go('index');
+      });
+    }
   }
 })();

@@ -8,3 +8,4 @@ dist/vendor/
 dist/css/d-lock.css
 *.sublime-workspace
 dist/views/
+.vscode/
