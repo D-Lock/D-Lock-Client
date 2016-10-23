@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Files').
-  service('FileService', ['FILES_REF', 'PART_DIR', 'FirebaseService', '$window', 'FileSocket', FileService]);
+  service('FileService', ['FILES_REF', 'PART_DIR', '$window', 'FirebaseService', 'FileSocket', 'FileCrypto', FileService]);
 
-  function FileService(FILES_REF, PART_DIR, FirebaseService, $window, FileSocket) {
+  function FileService(FILES_REF, PART_DIR, $window, FirebaseService, FileSocket, FileCrypto) {
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
