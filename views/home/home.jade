@@ -1,6 +1,9 @@
 .file-list
   .file-list__header
     .file-list__header-text Files
+    label.file-list__upload.button(for='fileUpload') Upload File
+    input#fileUpload.show-for-sr(type='file', onchange="angular.element(this).scope().upload()")
+
   .file-list__container
     .file-list__section
       ul.file-list__files

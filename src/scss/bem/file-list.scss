@@ -6,16 +6,30 @@
   color: $light-main;
   
   &__header {
+    display: flex;
     height: 50px;
     border-bottom: 1px solid transparentize($accent-color, 0.8);
   }
   
   &__header-text {
+    flex: 1;
     user-select: none;
     color: $accent-color;
     cursor: default;
     padding: 10px 15px;
     font-size: 1.3em;
+  }
+  
+  &__upload {
+    border-radius: $border-radius;
+    display: inline-block;
+    margin: 0.25em 0.25em 0.25em;
+    
+    background: light-gradient($accent-color, 20%);
+
+    &:hover {
+      background: light-gradient(darken($accent-color, 10%), 20%);
+    }
   }
   
   &__container {

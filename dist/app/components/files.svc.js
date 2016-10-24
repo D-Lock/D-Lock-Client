@@ -2,20 +2,19 @@
   'use strict';
 
   angular.module('DLock-Files').
-  service('FileService', ['FILES_REF', 'PART_DIR', '$window', 'FirebaseService', 'FileSocket', 'FileCrypto', FileService]);
+  service('FileService', ['FILES_REF', 'PART_DIR', '$window', 'FirebaseService', 'FileSocket', 'FileCryptoService', 'FileDeliveryService', FileService]);
 
-  function FileService(FILES_REF, PART_DIR, $window, FirebaseService, FileSocket, FileCrypto) {
+  function FileService(FILES_REF, PART_DIR, $window, FirebaseService, FileSocket, FileCrypto, FileDelivery) {
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
     service.isAuthenticated = false;
 
-    var DeliveryClient = $window.deliveryClient;
     var fs = $window.fs;
     var mkdir = $window.mkdir;
     var partsDir = $window.home + PART_DIR;
 
-    var delivery = new DeliveryClient(FileSocket);
+    FileDelivery.configure(FileSocket);
 
     service.getFiles = function(uid, cb) {
       db.ref(FILES_REF).child(uid).on('value', cb);
@@ -32,44 +31,43 @@
       });
     });
 
-    service.sendFile = function(file) {
-      file.params = {
-        mode: 'upload'
-      };
-      delivery.send(file);
+    service.sendFile = function(file, $scope) {
+      FileDelivery.sendFile(file, {}, $scope);
     };
 
     service.sendPart = function(hash, userId, fileName, filePath) {
       var part = {
         name: fileName,
         path: filePath,
-        params: {
-          mode: 'part',
-          hash: hash
-        }
       };
-      delivery.send(part);
+      var params = {
+        mode: 'part',
+        hash: hash
+      };
+      FileDelivery.sendPart(part, params);
     };
 
-    delivery.on('receive.success', function(file) {
-      if(file.params.mode === "download") {
-        fs.writeFile($window.home + "/Downloads/" + file.name, file.buffer, function(err) {
-          if (err) return console.error(err);
-        });
-      } else if (file.params.mode === "part") {
-        mkdir(partsDir, function(err) {
-          if (err) return console.error(err);
+    FileDelivery.on('receive.part', function(filePackage) {
+      mkdir(partsDir, function(err) {
+        if (err) return console.error(err);
 
-          fs.writeFile(partsDir + file.name, file.buffer, function(err) {
-            if (err) return console.error(err);
-          });
+        var buffer = new Buffer(filePackage.data, 'base64');
+        fs.writeFile(partsDir + filePackage.name, buffer, function(err) {
+          if (err) return console.error(err);
         });
-      }
+      });
     });
 
-    delivery.on('send.success',function(fileUID){
+    FileDelivery.on('receive.file', function(filePackage) {
+      var buffer = new Buffer(filePackage.data, 'base64');
+      fs.writeFile($window.home + "/Downloads/" + filePackage.name, buffer, function(err) {
+        if (err) return console.error(err);
+      });
+    });
+
+    /*delivery.on('send.success',function(fileUID){
       console.log("file was successfully sent.");
-    });
+    });*/
 
     FileSocket.on('connect', function(ev, data) {
       service.isConnected = true;
@@ -77,10 +75,6 @@
 
     FileSocket.on('disconnect', function(ev, data) {
       service.isConnected = false;
-    });
-
-    FileSocket.on('request.part', function(fileName) {
-
     });
     
     service.authenticateUser = function(user) {

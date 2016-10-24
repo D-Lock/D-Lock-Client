@@ -12,12 +12,11 @@
     $scope.online = false;
 
     $scope.upload = function() {
-      var file = document.getElementById('fileInput').files[0];
-      FileService.sendFile(file);
+      var file = document.getElementById('fileUpload').files[0];
+      FileService.sendFile(file, $scope);
     };
 
-    //Check for online address changes
-    if($scope.loggedIn) {
+    var authenticate = function() {
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
       FileService.getFiles($scope.user.uid, function(filesObj) {
         var files = filesObj.val();
@@ -34,6 +33,10 @@
         $scope.$apply();
       });
       $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
+    };
+
+    if(Authentication.loggedIn) {
+      authenticate();
     }
 
     $scope.requestFile = FileService.requestFile;
