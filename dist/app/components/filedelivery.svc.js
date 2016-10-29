@@ -55,6 +55,14 @@
         _this.socket.emit('receive.part', params);
         _this.publish('receive.part', filePackage);
       });
+
+      this.socket.on('receive.file', function() {
+        _this.publish('success.file');
+      });
+
+      this.socket.on('receive.part', function() {
+        _this.publish('success.part');
+      });
     };
 
     factory.sendFile = function(file, params, $scope) {

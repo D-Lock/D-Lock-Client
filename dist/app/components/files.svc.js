@@ -65,9 +65,9 @@
       });
     });
 
-    /*delivery.on('send.success',function(fileUID){
-      console.log("file was successfully sent.");
-    });*/
+    FileDelivery.on('success.file',function(){
+      console.log("File was successfully sent.");
+    });
 
     FileSocket.on('connect', function(ev, data) {
       service.isConnected = true;
