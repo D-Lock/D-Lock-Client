@@ -41,10 +41,18 @@
       });
 
       this.socket.on('send.file', function(filePackage) {
-        _this.publish('receive.part', filePackage);
+        var params = {
+          hash: filePackage.params.hash
+        }
+        _this.socket.emit('receive.file', params);
+        _this.publish('receive.file', filePackage);
       });
 
       this.socket.on('send.part', function(filePackage) {
+        var params = {
+          partName: filePackage.name
+        };
+        _this.socket.emit('receive.part', params);
         _this.publish('receive.part', filePackage);
       });
     };
