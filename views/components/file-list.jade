@@ -1,0 +1,24 @@
+.file-list
+  .file-list__header
+    .file-list__header-text Files
+    label.file-list__upload.button(for='fileUpload') Upload File
+    input#fileUpload.show-for-sr(type='file', onchange="angular.element(this).scope().upload()")
+
+  .file-list__container
+    .file-list__section
+      ul.file-list__files
+        //- li.file-list__file.file-list__file--folder.file-list__file--active Private Photographs
+        //- li.file-list__file(ng-if="selectedDirectory", ng-repeat="file in selectedDirectory") {{file.path}}
+        li.file-list__file(ng-bind="files.length")
+        li.file-list__file(ng-repeat="(key, file) in files") File
+
+    .file-list__section(ng-if="selectedDirectory && isDirectory(selectedDirectory)")
+      ul.file-list__files
+        li.file-list__file.file-list__file--active Photograph 1.jpg
+        li.file-list__file 2.jpg
+        li.file-list__file 3.jpg
+        li.file-list__file 4.jpg
+        li.file-list__file 5.jpg
+        li.file-list__file 6.jpg
+        li.file-list__file 7.jpg
+        li.file-list__file 8.jpg
