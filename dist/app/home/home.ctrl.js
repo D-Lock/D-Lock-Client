@@ -25,6 +25,7 @@
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
       FileService.getFiles($scope.user.uid, function(filesObj) {
         $scope.files = filesObj;
+        $scope.$apply();
       });
       $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
     };

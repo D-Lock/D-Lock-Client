@@ -10,6 +10,7 @@
       $scope.fileSystems = [];
 
       $scope.$watch('files', function(newValue) {
+        $scope.fileSystems.length = 0;
         createFileTree(newValue);
       });
 

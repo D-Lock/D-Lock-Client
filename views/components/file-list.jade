@@ -13,15 +13,4 @@
           ng-class="isDirectory(file) ? 'file-list__file--folder' : ''",
           ng-click="clickFile(key, file, fileSystemIndex)") {{key}}
 
-    .file-list__section(ng-if="selectedDirectory && isDirectory(selectedDirectory)")
-      ul.file-list__files
-        li.file-list__file.file-list__file--active Photograph 1.jpg
-        li.file-list__file 2.jpg
-        li.file-list__file 3.jpg
-        li.file-list__file 4.jpg
-        li.file-list__file 5.jpg
-        li.file-list__file 6.jpg
-        li.file-list__file 7.jpg
-        li.file-list__file 8.jpg
-
 script(src='../js/ui/fileList.js')
