@@ -1,0 +1,18 @@
+.file-viewer.small-12.columns(ng-if="file")
+  .row
+    .small-12.columns
+      .file-viewer__image
+        img(src="http://i.imgur.com/fbO2eDj.png")
+      .file-viewer__description
+        .file-viewer__name {{file.path}}
+        .file-viewer__info
+          .file-viewer__size {{humanFileSize(file.size)}}
+          .file-viewer__type {{file.type | uppercase}}
+      .download-button-group(href="#")
+        .download-button__text
+          | &#xE876
+        .download-button.button
+          | Download
+          .download-button__progress
+
+script(src='../js/ui/downloadButton.js')

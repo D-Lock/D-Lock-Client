@@ -6,7 +6,7 @@
 
   function HomeController($scope, $state, $window, Authentication, FileService, MD5) {
     $scope.files = {};
-    $scope.selectedDirectory = undefined;
+    $scope.selectedFile = undefined;
 
     $scope.loggedIn = Authentication.loggedIn;
     $scope.user = Authentication.user;
@@ -15,6 +15,10 @@
     $scope.upload = function() {
       var file = document.getElementById('fileUpload').files[0];
       FileService.sendFile(file, $scope);
+    };
+
+    $scope.selectFile = function(newFile) {
+      $scope.selectedFile = newFile;
     };
 
     var authenticate = function() {
@@ -27,22 +31,6 @@
 
     if(Authentication.loggedIn) {
       authenticate();
-    }
-
-    $scope.requestFile = FileService.requestFile;
-
-    $scope.humanFileSize = function(bytes) {
-      var thresh = 1000;
-      if(Math.abs(bytes) < thresh) {
-          return bytes + ' B';
-      }
-      var units = ['kB','MB','GB','TB','PB','EB','ZB','YB'];
-      var u = -1;
-      do {
-          bytes /= thresh;
-          ++u;
-      } while(Math.abs(bytes) >= thresh && u < units.length - 1);
-      return bytes.toFixed(1)+' '+units[u];
     }
 
     function checkOnlineMACS(onlineObj) {

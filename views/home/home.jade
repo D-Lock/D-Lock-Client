@@ -1,22 +1,3 @@
-dloc-file-list(upload="upload", files="files")
+dloc-file-list(upload="upload", files="files", select-file="selectFile")
      
-.small-12.columns.file-viewer
-  .row
-    .small-6.large-3.columns
-      .file-viewer__image
-        img(src="http://i.imgur.com/fbO2eDj.png")
-      .file-viewer__description
-        .file-viewer__name Photograph 1
-        .file-viewer__info
-          .file-viewer__size 64kB
-          .file-viewer__type JPEG
-      .download-button-group(href="#")
-        .download-button__text
-          | &#xE876
-        .download-button.button
-          | Download
-          .download-button__progress
-              
-// UI Scripts
-script(src='../js/ui/downloadButton.js')
-script(src='../js/ui/fileList.js')
+dloc-file-viewer(file="selectedFile")

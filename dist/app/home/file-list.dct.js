@@ -5,26 +5,27 @@
   directive('dlocFileList', [FileListDirective]);
 
   function FileListDirective() {
-    function link(scope, element, attrs) {
-      scope.upload = function() {};
-      scope.files = [];
-      scope.fileSystems = [];
+    function link($scope, element, attrs) {
+      $scope.files = [];
+      $scope.fileSystems = [];
 
-      scope.$watch('files', function(newValue) {
+      $scope.$watch('files', function(newValue) {
         createFileTree(newValue);
       });
 
-      scope.selectFile = function(key, file, fileSystemIndex) {
-        if(scope.isDirectory(file)) {
+      $scope.clickFile = function(key, file, fileSystemIndex) {
+        if($scope.isDirectory(file)) {
           //Remove all old fileSystems
-          scope.fileSystems.length = fileSystemIndex + 1;
+          $scope.fileSystems.length = fileSystemIndex + 1;
 
-          scope.fileSystems.push(file);
+          $scope.fileSystems.push(file);
           return;
         }
+
+        $scope.selectFile(file);
       };
 
-      scope.isDirectory = function(file) {
+      $scope.isDirectory = function(file) {
         return file.type === "dir";
       }
 
@@ -73,7 +74,7 @@
           recurse(fileSystem, files[i].path, files[i]);
         }
 
-        scope.fileSystems.push(fileSystem);
+        $scope.fileSystems.push(fileSystem);
       };
     };
 
@@ -82,7 +83,8 @@
       restrict: 'E',
       scope: {
         'upload': '=',
-        'files': '='
+        'files': '=',
+        'selectFile': '='
       },
       templateUrl: 'components/file-list.html'
     };

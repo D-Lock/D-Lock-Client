@@ -11,7 +11,7 @@
         li.file-list__file(ng-repeat="(key, file) in fileSystem track by $index",
           ng-if="key !== 'type'", 
           ng-class="isDirectory(file) ? 'file-list__file--folder' : ''",
-          ng-click="selectFile(key, file, fileSystemIndex)") {{key}}
+          ng-click="clickFile(key, file, fileSystemIndex)") {{key}}
 
     .file-list__section(ng-if="selectedDirectory && isDirectory(selectedDirectory)")
       ul.file-list__files
@@ -23,3 +23,5 @@
         li.file-list__file 6.jpg
         li.file-list__file 7.jpg
         li.file-list__file 8.jpg
+
+script(src='../js/ui/fileList.js')
