@@ -5,12 +5,13 @@
     input#fileUpload.show-for-sr(type='file', onchange="angular.element(this).scope().upload()")
 
   .file-list__container
-    .file-list__section
+    .file-list__section(ng-repeat="fileSystem in fileSystems track by $index", 
+      ng-init="fileSystemIndex = $index")
       ul.file-list__files
-        //- li.file-list__file.file-list__file--folder.file-list__file--active Private Photographs
-        //- li.file-list__file(ng-if="selectedDirectory", ng-repeat="file in selectedDirectory") {{file.path}}
-        li.file-list__file(ng-bind="files.length")
-        li.file-list__file(ng-repeat="(key, file) in files") File
+        li.file-list__file(ng-repeat="(key, file) in fileSystem track by $index",
+          ng-if="key !== 'type'", 
+          ng-class="isDirectory(file) ? 'file-list__file--folder' : ''",
+          ng-click="selectFile(key, file, fileSystemIndex)") {{key}}
 
     .file-list__section(ng-if="selectedDirectory && isDirectory(selectedDirectory)")
       ul.file-list__files

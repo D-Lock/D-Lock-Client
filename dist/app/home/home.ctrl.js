@@ -20,7 +20,7 @@
     var authenticate = function() {
       Authentication.onlineAddresses.on('value', checkOnlineMACS);
       FileService.getFiles($scope.user.uid, function(filesObj) {
-        createFileTree(filesObj);
+        $scope.files = filesObj;
       });
       $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
     };
@@ -28,51 +28,6 @@
     if(Authentication.loggedIn) {
       authenticate();
     }
-
-    $scope.isDirectory = function(file) {
-      return file.isArray;
-    }
-
-    function createFileTree(filesObj) {
-      var files = filesObj.val();
-      if(files === null) {
-        $scope.files = undefined;
-        $scope.$apply();
-        return;
-      }
-
-      //Map all the hashes inside the file objects
-      files = Object.keys(files).map(function(key) {
-        var file = files[key];
-        file.hash = key;
-        return file;
-      });
-
-      var recurse = function(parent, path, file) {
-        var slash = path.indexOf('/');
-        if(slash !== -1) {
-          //The name of the directory
-          var dir = path.substr(0, slash);
-
-          //The new path within the directory
-          var newPath = path.substr(slash + 1);
-
-          //Create the new directory
-          if(!(dir in parent)) {
-            parent[dir] = [];
-          }
-          return recurse(parent[dir], newPath, file);
-        }
-
-        parent[path] = file;
-      };
-
-      $scope.files.length = 0;
-      for(var i = 0; i < files.length; i++) {
-        recurse($scope.files, files[i].path, files[i]);
-      }
-      $scope.$apply();
-    };
 
     $scope.requestFile = FileService.requestFile;
 
