@@ -1,0 +1,37 @@
+.login {
+  width: 100%;
+  background: light-gradient($body-highlight-bg, 5%);
+  box-shadow: bottom-shadow(1), top-shadow(1);
+  color: $light-main;
+  
+  &__header {
+    display: flex;
+    height: 50px;
+    border-bottom: 1px solid transparentize($accent-color, 0.8);
+  }
+  
+  &__header-text {
+    flex: 1;
+    user-select: none;
+    color: $accent-color;
+    cursor: default;
+    padding: 10px 15px;
+    font-size: 1.3em;
+  }
+  
+  &__container {
+    padding-top: 10px;
+    flex-direction: row;
+    align-items: flex-start;
+    height: calc(100% - 50px);
+    width: 100%;
+  }
+  
+  &__input {
+    border-radius: $border-radius;
+  }
+  
+  &__button {
+    display: block;
+  }
+}

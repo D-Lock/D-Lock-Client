@@ -27,6 +27,14 @@ body {
     background: light-gradient($light-main, 2%);
 }
 
+.primary-gradient-button {
+  background: light-gradient($accent-color, 15%);
+  
+  &:hover {
+    background: light-gradient(darken($accent-color, 5%), 15%);
+  }
+}
+
 .title-bar {
   position: absolute;
   z-index: 50;

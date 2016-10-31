@@ -4,6 +4,11 @@
   border-radius: 0 $border-radius 0 0;
   height: 100%;
   padding: 0;
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
   
   &__header {
     position: relative;
