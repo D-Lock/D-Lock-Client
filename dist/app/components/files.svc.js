@@ -51,7 +51,8 @@
       mkdir(partsDir, function(err) {
         if (err) return console.error(err);
 
-        var buffer = new Buffer(filePackage.data, 'base64');
+        var decrypted = FileCrypto.decrypt(filePackage.data);
+        var buffer = new Buffer(decrypted, 'base64');
         fs.writeFile(partsDir + filePackage.name, buffer, function(err) {
           if (err) return console.error(err);
         });
@@ -59,7 +60,8 @@
     });
 
     FileDelivery.on('receive.file', function(filePackage) {
-      var buffer = new Buffer(filePackage.data, 'base64');
+      var decrypted = FileCrypto.decrypt(filePackage.data);
+      var buffer = new Buffer(decrypted, 'base64');
       fs.writeFile($window.home + "/Downloads/" + filePackage.name, buffer, function(err) {
         if (err) return console.error(err);
       });

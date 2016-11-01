@@ -69,6 +69,8 @@
       var _this = this;
       PackageFactory.create(file, params, $scope).then(function(filePackage) {
         _this.publish('file.loaded', filePackage);
+      }).catch(function(err) {
+        console.error(err);
       });
     };
 
@@ -76,6 +78,8 @@
       var _this = this;
       PackageFactory.create(file, params, $scope).then(function(filePackage) {
         _this.publish('part.loaded', filePackage);
+      }).catch(function(err){
+        console.error(err);
       });
     };
 

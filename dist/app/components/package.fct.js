@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Files').
-  factory('PackageFactory', ['$q', 'FileReader', PackageFactory]);
+  factory('PackageFactory', ['$q', 'FileReader', 'FileCryptoService', PackageFactory]);
 
-  function PackageFactory($q, FileReader) {
+  function PackageFactory($q, FileReader, FileCrypto) {
     return {
       create: function(file, params, $scope) {
         var deferred = $q.defer();
@@ -18,8 +18,7 @@
         };
 
         FileReader.readAsDataURL(file, $scope).then(function(res) {
-          response.base64Data = res;
-          response.data = res.replace(/^[^,]*,/,'');
+          response.data = FileCrypto.encrypt(res.replace(/^[^,]*,/,''));
           deferred.resolve(response);
         }, function(err) {
           deferred.reject(err);
