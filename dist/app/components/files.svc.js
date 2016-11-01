@@ -8,7 +8,6 @@
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
-    service.isAuthenticated = false;
 
     var fs = $window.fs;
     var mkdir = $window.mkdir;
@@ -78,11 +77,6 @@
     FileSocket.on('disconnect', function(ev, data) {
       service.isConnected = false;
     });
-    
-    service.authenticateUser = function(user) {
-      FileSocket.emit('user.info', user);
-      service.isAuthenticated = true;
-    }
 
     return service;
   }
