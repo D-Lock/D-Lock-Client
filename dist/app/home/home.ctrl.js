@@ -48,8 +48,9 @@
       Authentication.allAddresses.once('value').then(function(allObj) {
         var all = allObj.val();
 
+        //Get the address field for each of the devices
         var totalValues = Object.keys(all).map(function(key) {
-          return all[key];
+          return all[key].address;
         });
         if(totalValues.length > onlineValues.length) {
           $scope.online = false;

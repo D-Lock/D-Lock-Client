@@ -7,20 +7,26 @@
   function SettingsController($scope, $state, $window, Authentication) {
     $scope.clients = [];
 
-    $scope.loggedIn = Authentication.loggedIn;
+    if(Authentication.loggedIn) {
+      Authentication.allAddresses.on('value', function(res) {
+        saveListToScope(res, 'allClients');
+      });
 
-    if($scope.loggedIn) {
-      Authentication.allAddresses.on('value', getClientList);
+      Authentication.onlineAddresses.on('value', function(res) {
+        saveListToScope(res, 'onlineClients');
+      });
     }
 
-    function getClientList(onlineObj) {
-      var clientList = onlineObj.val();
-
+    function saveListToScope(deviceObj, scopeName) {
+      var clientList = deviceObj.val();
       var clientValues = Object.keys(clientList).map(function(key) {
         return clientList[key];
       });
-      $scope.clients = clientValues;
-      $scope.$apply();
+      
+      $scope[scopeName] = clientValues;
+      if(!$scope.$$phase) {
+        $scope.$apply();
+      }
     }
   }
 })();

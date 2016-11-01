@@ -9,7 +9,7 @@
     li.side-nav__link(ng-click="logOut()", ng-if="loggedIn")
       i.material-icons power_settings_new
       span.side-nav__link-text Log Out
-    li.side-nav__link(ng-if="loggedIn")
+    li.side-nav__link(ng-if="loggedIn", ui-sref="home.settings")
       i.material-icons settings_applications
       span.side-nav__link-text Settings
     li.side-nav__link(ng-if="loggedIn")
