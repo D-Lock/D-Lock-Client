@@ -12,7 +12,10 @@
 
     $scope.loggedIn = Authentication.loggedIn;
     $scope.user = Authentication.user;
-    $scope.online = false;
+    $scope.online = Authentication.online;
+
+    $scope.userAvatar = "https://www.gravatar.com/avatar/" + 
+      MD5.createHash($scope.user.email.toLowerCase());
 
     $scope.upload = function() {
       var file = document.getElementById('fileUpload').files[0];
@@ -23,16 +26,22 @@
       $scope.selectedFile = newFile;
     };
 
-    function authenticate() {
+    var handleOnline = function(online) {
+      if(!online) {
+        $scope.files = {};
+        $scope.selectedFile = undefined;
+        return;
+      }
+
       FileService.getFiles($scope.user.uid, function(filesObj) {
         $scope.files = filesObj;
         $scope.$apply();
       });
-      $scope.userAvatar = "https://www.gravatar.com/avatar/" + MD5.createHash($scope.user.email.toLowerCase());
-    };
-
-    if(Authentication.loggedIn) {
-      authenticate();
     }
+
+    handleOnline($scope.online);
+    Authentication.onOnline.push(function(online) {
+      handleOnline(online);
+    });
   }
 })();

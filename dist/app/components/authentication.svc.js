@@ -15,6 +15,8 @@
     service.user = null;
     service.online = false;
 
+    service.onOnline = [];
+
     //Public method for logging in
     service.logIn = function(email, password) {
       var signIn = auth.signInWithEmailAndPassword(email, password);
@@ -104,12 +106,19 @@
       });
     };
 
-    FileSocket.on('login.connected', function() {
+    FileSocket.on('user.connected', function() {
+      console.log('User has connected all devices');
       service.online = true;
+      service.onOnline.forEach(function(fn) {
+        fn(service.online);
+      });
     });
 
-    FileSocket.on('login.disconnected', function() {
+    FileSocket.on('user.disconnected', function() {
       service.online = false;
+      service.onOnline.forEach(function(fn) {
+        fn(service.online);
+      });
     });
 
     service.authenticateUser = function(user) {
