@@ -115,6 +115,7 @@
     });
 
     FileSocket.on('user.disconnected', function() {
+      console.log('User has disconnected on another device');
       service.online = false;
       service.onOnline.forEach(function(fn) {
         fn(service.online);

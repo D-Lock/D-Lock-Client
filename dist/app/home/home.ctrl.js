@@ -35,7 +35,9 @@
 
       FileService.getFiles($scope.user.uid, function(filesObj) {
         $scope.files = filesObj;
-        $scope.$apply();
+        if(!$scope.$$phase) {
+          $scope.$apply();
+        }
       });
     }
 

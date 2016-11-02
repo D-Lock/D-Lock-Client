@@ -8,4 +8,5 @@
         .device-list__description
           .device-list__name {{client.name}}
           .device-list__info {{client.address}}
-        .device-list__status(ng-class="onlineClients.indexOf(client.address) !== -1 ? 'device-list__status--online' : 'device-list__status--offline'") Online
+        .device-list__status(ng-class="onlineClients.indexOf(client.address) !== -1 ? 'device-list__status--online' : 'device-list__status--offline'") 
+          | {{onlineClients.indexOf(client.address) !== -1 ? 'Online' : 'Offline'}}
