@@ -58,7 +58,9 @@
         throw "MAC Address is not in the global scope";
       }
       //Put their MAC address on the online list
-      service.onlineAddresses.push(service.macAddress);
+      if(service.onlineAddresses.indexOf(service.macAddress) === -1) {
+        service.onlineAddresses.push(service.macAddress);
+      }
     });
 
     //When the user closes the window
