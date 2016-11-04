@@ -6,13 +6,14 @@
 
   function FileCryptoService($crypto) {
     var service = {};
+    service.key = "DLockDefaultKey";
     
-    service.encrypt = function(fileData, key) {
-      return $crypto.encrypt(fileData, key);
+    service.encrypt = function(fileData) {
+      return $crypto.encrypt(fileData, this.key);
     };
 
-    service.decrypt = function(encryptedFileData, key) {
-      return $crypto.decrypt(encryptedFileData, key);
+    service.decrypt = function(encryptedFileData) {
+      return $crypto.decrypt(encryptedFileData, this.key);
     };
 
     return service;

@@ -8,7 +8,6 @@
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
-    service.isAuthenticated = false;
 
     var fs = $window.fs;
     var mkdir = $window.mkdir;
@@ -51,7 +50,8 @@
       mkdir(partsDir, function(err) {
         if (err) return console.error(err);
 
-        var buffer = new Buffer(filePackage.data, 'base64');
+        var decrypted = FileCrypto.decrypt(filePackage.data);
+        var buffer = new Buffer(decrypted, 'base64');
         fs.writeFile(partsDir + filePackage.name, buffer, function(err) {
           if (err) return console.error(err);
         });
@@ -59,7 +59,8 @@
     });
 
     FileDelivery.on('receive.file', function(filePackage) {
-      var buffer = new Buffer(filePackage.data, 'base64');
+      var decrypted = FileCrypto.decrypt(filePackage.data);
+      var buffer = new Buffer(decrypted, 'base64');
       fs.writeFile($window.home + "/Downloads/" + filePackage.name, buffer, function(err) {
         if (err) return console.error(err);
       });
@@ -76,11 +77,6 @@
     FileSocket.on('disconnect', function(ev, data) {
       service.isConnected = false;
     });
-    
-    service.authenticateUser = function(user) {
-      FileSocket.emit('user.info', user);
-      service.isAuthenticated = true;
-    }
 
     return service;
   }

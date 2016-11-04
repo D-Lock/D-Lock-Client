@@ -1,0 +1,12 @@
+.device-list
+  .device-list__header
+    .device-list__header-text Devices
+  
+  .device-list__container.row
+      .small-6.medium-3.columns.device-list__device(ng-repeat="client in allClients track by $index")
+        i.material-icons.device-list__icon {{client.type === "desktop" ? "desktop_windows" : "computer"}}
+        .device-list__description
+          .device-list__name {{client.name}}
+          .device-list__info {{client.address}}
+        .device-list__status(ng-class="onlineClients.indexOf(client.address) !== -1 ? 'device-list__status--online' : 'device-list__status--offline'") 
+          | {{onlineClients.indexOf(client.address) !== -1 ? 'Online' : 'Offline'}}

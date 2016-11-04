@@ -1,6 +1,6 @@
 .columns.side-nav
   ul.side-nav__buttons
-    li.side-nav__link.side-nav__link--top 
+    li.side-nav__link.side-nav__link--top(ui-sref="home")
       i.material-icons lock
       span.side-nav__link-text D-Loc
     li.side-nav__link(ui-sref="index.login", ng-if="!loggedIn")
@@ -9,12 +9,9 @@
     li.side-nav__link(ng-click="logOut()", ng-if="loggedIn")
       i.material-icons power_settings_new
       span.side-nav__link-text Log Out
-    li.side-nav__link(ng-if="loggedIn")
+    li.side-nav__link(ng-if="loggedIn", ui-sref="home.settings")
       i.material-icons settings_applications
       span.side-nav__link-text Settings
-    li.side-nav__link(ng-if="loggedIn")
-      i.material-icons cloud
-      span.side-nav__link-text Files
     li.side-nav__link(ng-if="loggedIn")
       i.material-icons group
       span.side-nav__link-text Sharing

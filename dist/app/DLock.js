@@ -84,8 +84,12 @@
     .state({
       name: 'home.settings',
       url: '/settings',
-      templateUrl: 'settings/settings.html',
-      controller: 'SettingsController'
+      views: {
+        '@': {
+          templateUrl: 'settings/settings.html',
+          controller: 'SettingsController'
+        }
+      }
     })
     .state("otherwise", {
       url: '/'
