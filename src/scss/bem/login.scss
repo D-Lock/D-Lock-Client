@@ -34,4 +34,15 @@
   &__button {
     display: block;
   }
+
+  &__errors {
+    padding-bottom: 1em;
+  }
+  
+  &__error {
+    .material-icons {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
 }

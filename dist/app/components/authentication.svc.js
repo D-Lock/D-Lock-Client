@@ -17,30 +17,53 @@
 
     service.onOnline = [];
 
+    var addToOnline = function() {
+      service.onlineAddresses.once('value', function(snapshot) {
+        var val = snapshot.val();
+        
+        if(val === null || val.indexOf(service.macAddress) === -1) {
+          service.onlineAddresses.push(service.macAddress);
+        }
+      });
+    };
+
     //Public method for logging in
     service.logIn = function(email, password) {
-      var signIn = auth.signInWithEmailAndPassword(email, password);
-      signIn.then(function(user) {
-        service.loggedIn = true;
-        service.user = user;
+      return new Promise(function(resolve, reject) {
+        var signIn = auth.signInWithEmailAndPassword(email, password)
+        .then(function(user) {
+          service.loggedIn = true;
+          service.user = user;
 
-        service.onlineAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
-        service.allAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("all");
+          service.onlineAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
+          service.allAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("all");
 
-        service.macAddress = $window.mac;
-        if(!service.macAddress) {
-          throw "MAC Address is not in the global scope";
-        }
+          service.authenticateUser({
+            id: user.uid,
+            mac: service.macAddress
+          });
 
-        service.authenticateUser({
-          id: user.uid,
-          mac: service.macAddress
+          //Put their MAC address on the online list
+          addToOnline();
+
+          resolve(user);
+        })
+        .catch(function(error) {
+          service.loggedIn = false;
+          reject(error);
         });
       });
-      signIn.catch(function(error) {
-        service.loggedIn = false;
+    };
+
+    service.setMacAddress = function() {
+      return new Promise(function(resolve, reject) {
+        if(!$window.mac) {
+          return reject("MAC Address is not in the global scope");
+        }
+
+        service.macAddress = $window.mac;
+        resolve(service.macAddress);
       });
-      return signIn;
     };
 
     service.register = function(email, password) {
@@ -50,7 +73,7 @@
         console.error(error.message);
       });
       return signUp;
-    }
+    };
 
     service.forgot = function(email){
       var reset = auth.sendPasswordResetEmail(email);
@@ -59,19 +82,7 @@
         console.error(error.message);
       });
       return reset;
-    }
-
-    //When the user is now logged in
-    auth.onAuthStateChanged(function(user) {
-      service.loggedIn = !!user;
-
-      if(!service.loggedIn) return;
-
-      //Put their MAC address on the online list
-      if(service.onlineAddresses.indexOf(service.macAddress) === -1) {
-        service.onlineAddresses.push(service.macAddress);
-      }
-    });
+    };
 
     //When the user closes the window
     service.logOut = function() {

@@ -11,3 +11,7 @@
     .small-2.columns
       label &nbsp;
         input.button.expanded.login__input.login__button.primary-gradient-button(type="button", value="Login", ng-click="login()")
+  .row.login__errors(ng-if="error")
+    .small-12.columns.login__error
+      i.material-icons error
+      | {{error}}
