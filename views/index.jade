@@ -9,6 +9,11 @@ html(ng-app='DLock')
 
   body
     .title-bar
+      .title-bar__icons
+        .title-bar__icon.title-bar__icon--minimize(onclick="electronMinimize()")
+          i.material-icons remove
+        .title-bar__icon.title-bar__icon--close(onclick="electronClose()")
+          i.material-icons close
     .row.full-height.full-width
       div(ui-view="side-nav")
       .columns.content
@@ -19,6 +24,7 @@ html(ng-app='DLock')
     script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='../js/fileSystem.js')
     script(src='../js/getMacAddress.js')
+    script(src='../js/electronControls.js')
 
     // Bower
     script(src='../vendor/angular/angular.js')

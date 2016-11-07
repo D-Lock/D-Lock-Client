@@ -1,0 +1,23 @@
+.title-bar {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: $title-bar-height;
+  width: 100%;
+  border-radius: $border-radius $border-radius 0 0;
+  -webkit-app-region: drag;
+  
+  &__icons {
+    width: 100%;
+    text-align: right;
+  }
+  
+  &__icon {
+    -webkit-app-region: no-drag;
+    border-radius: 50%;
+    display: inline;
+    cursor: pointer;
+  }
+}
