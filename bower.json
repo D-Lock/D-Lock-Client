@@ -1,11 +1,8 @@
 {
-  "name": "Electron-Boilerplate",
-  "version": "1.1.1",
-  "homepage": "https://github.com/Stephn-R/Electron-Boilerplate",
-  "authors": [
-    "Stephen Rodriguez <steprodriguez10@gmail.com>"
-  ],
-  "description": "A template for Electron projects to build/publish Mac/Windows/Linux compatible applications",
+  "name": "dloc-client",
+  "version": "1.0.0",
+  "homepage": "https://github.com/D-Lock/D-Lock-Client",
+  "description": "A secured, distributed file system",
   "moduleType": [
     "node"
   ],
