@@ -1,3 +1,16 @@
+.location-settings
+  .location-settings__header
+    .location-settings__header-text Locations
+
+  .location-settings__container.row
+    .medium-6.columns
+      label.location-settings__label Download Folder
+      .input-group
+        input.input-group-field.location-settings__input(type="text", ng-model="downloadLocation", readonly="")
+        .input-group-button
+          label.button.primary-gradient-button.location-settings__upload-label(for="downloadLocationUpload") Browse
+          input#downloadLocationUpload.show-for-sr(type="file", value="Browse", webkitdirectory="", onchange="angular.element(this).scope().updateDownloadLocation()")
+
 .device-list
   .device-list__header
     .device-list__header-text Devices

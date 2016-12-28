@@ -1,0 +1,36 @@
+.location-settings {
+  width: 100%;
+  color: $light-main;
+  
+  &__header {
+    display: flex;
+    height: 50px;
+    background: light-gradient($body-highlight-bg, 5%);
+    box-shadow: bottom-shadow(1), top-shadow(1);
+  }
+  
+  &__header-text {
+    flex: 1;
+    user-select: none;
+    color: $accent-color;
+    cursor: default;
+    padding: 10px 15px;
+    font-size: 1.3em;
+  }
+
+  &__container {
+    padding-top: 10px;
+  }
+
+  &__input {
+    border-radius: $border-radius;
+  }
+  
+  &__button {
+    display: block;
+  }
+
+  &__upload-label {
+    margin-bottom: 0;
+  }
+}
