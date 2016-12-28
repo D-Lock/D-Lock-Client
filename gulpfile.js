@@ -54,7 +54,9 @@ gulp.task('build-sass', () => {
       style: 'compressed'
     })).on('error', handleError)
     .pipe(plugins.sourcemaps.write())
-    .pipe(gulp.dest(cssRoot));
+    .pipe(gulp.dest(cssRoot))
+    .pipe(plugins.filter("**/*.css"))
+    .pipe(plugins.livereload());
 });
 
 gulp.task('package-angular', () => {
@@ -68,6 +70,7 @@ gulp.task('package-angular', () => {
 
 gulp.task('watch', () => {
   plugins.notify('Sass/Views/Angular Watch is Active...');
+  plugins.livereload.listen();
   gulp.watch(sassRoot+'/**/*.scss', ['build-sass']);
   gulp.watch(views, ['build-views']);
   gulp.watch(angular, ['package-angular']);
