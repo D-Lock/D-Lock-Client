@@ -65,18 +65,18 @@
       });
     };
 
-    factory.sendFile = function(file, params, $scope) {
+    factory.sendFile = function(file, params) {
       var _this = this;
-      PackageFactory.create(file, params, $scope).then(function(filePackage) {
+      PackageFactory.create(file, params).then(function(filePackage) {
         _this.publish('file.loaded', filePackage);
       }).catch(function(err) {
         console.error(err);
       });
     };
 
-    factory.sendPart = function(part, params, $scope) {
+    factory.sendPart = function(part, params, fileData) {
       var _this = this;
-      PackageFactory.create(file, params, $scope).then(function(filePackage) {
+      PackageFactory.createPart(part, params, fileData).then(function(filePackage) {
         _this.publish('part.loaded', filePackage);
       }).catch(function(err){
         console.error(err);

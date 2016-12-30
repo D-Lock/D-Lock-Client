@@ -11,7 +11,7 @@
     var getProperty = function(propertyName, defaultValue) {
       var deferred = $q.defer();
       db.findOne({name: propertyName}, function(err, docs) {
-        if(err || docs.length === 0) {
+        if(err || !docs) {
           //Return the default value otherwise
           if(defaultValue) {
             return deferred.resolve(defaultValue);

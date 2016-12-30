@@ -136,11 +136,11 @@
     });
 
     service.authenticateUser = function(user) {
-      FileSocket.emit('user.info', user);
+      FileSocket.emit('client.info', user);
     };
 
     service.unauthenticateUser = function(user) {
-      FileSocket.emit('user.out', user);
+      FileSocket.emit('client.out', user);
     };
 
     return service;

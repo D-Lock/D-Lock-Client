@@ -26,15 +26,15 @@
     FileSocket.on('request.part', function(params) {
       fs.readFile(partsDir + params.fileName, function(err, data) {
         if (err) return console.error(err);
-        service.sendPart(params.hash, params.userId, params.fileName, partsDir + params.fileName);
+        service.sendPart(params.hash, params.userId, params.fileName, partsDir + params.fileName, data);
       });
     });
 
-    service.sendFile = function(file, $scope) {
-      FileDelivery.sendFile(file, {}, $scope);
+    service.sendFile = function(file) {
+      FileDelivery.sendFile(file, {});
     };
 
-    service.sendPart = function(hash, userId, fileName, filePath) {
+    service.sendPart = function(hash, userId, fileName, filePath, fileData) {
       var part = {
         name: fileName,
         path: filePath,
@@ -43,15 +43,15 @@
         mode: 'part',
         hash: hash
       };
-      FileDelivery.sendPart(part, params);
+      var base64Data = fileData.toString('base64');
+      FileDelivery.sendPart(part, params, base64Data);
     };
 
     FileDelivery.on('receive.part', function(filePackage) {
       mkdir(partsDir, function(err) {
         if (err) return console.error(err);
 
-        var decrypted = FileCrypto.decrypt(filePackage.data);
-        var buffer = new Buffer(decrypted, 'base64');
+        var buffer = new Buffer(filePackage.data, 'base64');
         fs.writeFile(partsDir + filePackage.name, buffer, function(err) {
           if (err) return console.error(err);
         });

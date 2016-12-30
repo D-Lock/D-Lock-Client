@@ -8,7 +8,7 @@
         .file-viewer__info
           .file-viewer__size {{humanFileSize(file.size)}}
           .file-viewer__type {{file.type | uppercase}}
-      .download-button-group(href="#")
+      .download-button-group(href="#", ng-click="download()")
         .download-button__text
           | &#xE876
         .download-button.button

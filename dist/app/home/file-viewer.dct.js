@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Home').
-  directive('dlocFileViewer', [FileViewerDirective]);
+  directive('dlocFileViewer', ['FileService', FileViewerDirective]);
 
-  function FileViewerDirective() {
+  function FileViewerDirective(FileService) {
     function link($scope, element, attrs) {
       $scope.humanFileSize = function(bytes) {
         var thresh = 1000;
@@ -18,6 +18,11 @@
             ++u;
         } while(Math.abs(bytes) >= thresh && u < units.length - 1);
         return bytes.toFixed(1) + ' ' + units[u];
+      }
+
+      $scope.download = function() {
+        console.log("Requested file download", $scope.file);
+        FileService.requestFile($scope.file.hash);
       }
     };
 

@@ -19,7 +19,7 @@
 
     $scope.upload = function() {
       var file = document.getElementById('fileUpload').files[0];
-      FileService.sendFile(file, $scope);
+      FileService.sendFile(file);
     };
 
     $scope.selectFile = function(newFile) {
