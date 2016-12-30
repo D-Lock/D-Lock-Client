@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('DLock-Files').
-  service('FileService', ['FILES_REF', 'PART_DIR', '$window', 'FirebaseService', 'FileSocket', 'FileCryptoService', 'FileDeliveryService', FileService]);
+  service('FileService', ['FILES_REF', 'PART_DIR', '$window', 'UserSettingsService', 'FirebaseService', 'FileSocket', 'FileCryptoService', 'FileDeliveryService', FileService]);
 
-  function FileService(FILES_REF, PART_DIR, $window, FirebaseService, FileSocket, FileCrypto, FileDelivery) {
+  function FileService(FILES_REF, PART_DIR, $window, UserSettingsService, FirebaseService, FileSocket, FileCrypto, FileDelivery) {
     var db = firebase.database();
     var service = {};
     service.isConnected = false;
@@ -61,9 +61,11 @@
     FileDelivery.on('receive.file', function(filePackage) {
       var decrypted = FileCrypto.decrypt(filePackage.data);
       var buffer = new Buffer(decrypted, 'base64');
-      fs.writeFile($window.home + "/Downloads/" + filePackage.name, buffer, function(err) {
-        if (err) return console.error(err);
-      });
+      UserSettingsService.getDownloadLocation().then(function(loc) {
+        fs.writeFile(loc + "/" + filePackage.name, buffer, function(err) {
+          if (err) return console.error(err);
+        });
+      })
     });
 
     FileDelivery.on('success.file',function(){
