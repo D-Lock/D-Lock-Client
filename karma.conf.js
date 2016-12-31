@@ -17,10 +17,25 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/vendor/angular/angular.min.js',
+      'dist/vendor/angular/angular.js',
       'dist/vendor/angular-mocks/angular-mocks.js',
+      'dist/vendor/angular-ui-router/release/angular-ui-router.min.js',
+      'dist/vendor/angular-route/angular-route.js',
+      'dist/vendor/firebase/firebase.js',
+      'dist/vendor/angularfire/dist/angularfire.js',
+      'dist/vendor/socket.io-client/socket.io.js',
+      'dist/vendor/angular-socket-io/socket.min.js',
+      'dist/vendor/angular-md5/angular-md5.min.js',
+      'dist/vendor/cryptojslib/rollups/aes.js',
+      'dist/vendor/angular-cryptography/mdo-angular-cryptography.js',
+      'dist/vendor/angular-fileupload/angular-filereader.min.js',
+
+      'dist/app/DLock.js',
+      'dist/app/config.js',
+      'dist/app/modules.js',
       'dist/app/**/*.js',
-      '__tests__/**/*.spec.js'
+
+      '__tests__/**/*.spec.js',
     ],
 
 
@@ -45,7 +60,8 @@ module.exports = function(config) {
       'karma-jasmine',
       'karma-coverage',
       'karma-mocha-reporter',
-      'karma-phantomjs-launcher'
+      'karma-phantomjs-launcher',
+      'karma-chrome-launcher'
     ],
 
     // web server port
@@ -76,6 +92,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   });
 };

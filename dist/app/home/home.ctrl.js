@@ -2,11 +2,9 @@
   'use strict';
 
   angular.module('DLock-Home').
-  controller('HomeController', ['$scope', '$state', '$window', 'AuthenticationService', 'FileService', 'md5', HomeController]);
+  controller('HomeController', ['$scope', '$window', '$document', 'AuthenticationService', 'FileService', 'md5', HomeController]);
 
-  function HomeController($scope, $state, $window, Authentication, FileService, MD5) {
-    var hookedOnlineAddresses = false;
-
+  function HomeController($scope, $window, $document, Authentication, FileService, MD5) {
     $scope.files = {};
     $scope.selectedFile = undefined;
 
@@ -18,7 +16,7 @@
       MD5.createHash($scope.user.email.toLowerCase());
 
     $scope.upload = function() {
-      var file = document.getElementById('fileUpload').files[0];
+      var file = $document[0].getElementById('fileUpload').files[0];
       FileService.sendFile(file);
     };
 

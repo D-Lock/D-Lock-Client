@@ -21,9 +21,11 @@
       service.onlineAddresses.once('value', function(snapshot) {
         var val = snapshot.val();
         
-        if(val === null || val.indexOf(service.macAddress) === -1) {
-          service.onlineAddresses.push(service.macAddress);
+        if(val !== null && val.indexOf(service.macAddress) !== -1){
+          return;
         }
+
+        service.onlineAddresses.push(service.macAddress);
       });
     };
 

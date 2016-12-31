@@ -36,17 +36,17 @@
 
         var files = filesObj.val();
 
+        //No valid files
+        if(files === null || files.length === 0) {
+          return;
+        }
+
         //Map all the hashes inside the file objects
         files = Object.keys(files).map(function(key) {
           var file = files[key];
           file.hash = key;
           return file;
         });
-
-        //No valid files
-        if(files === null || files.length === 0) {
-          return;
-        }
 
         var recurse = function(parent, path, file) {
           var slash = path.indexOf('/');

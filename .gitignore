@@ -9,3 +9,4 @@ dist/css/d-lock.css
 *.sublime-workspace
 dist/views/
 .vscode/
+npm-debug*
