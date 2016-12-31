@@ -83,4 +83,6 @@ gulp.task('default', ['build-sass', 'package-angular', 'build-views', 'watch'], 
   gutil.log('Transposing Sass...');
 });
 
+gulp.task('test', ['build-sass', 'package-angular', 'build-views']);
+
 gulp.task('clean', ['clean:styles']);

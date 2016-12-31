@@ -72,8 +72,7 @@ module.exports = function(config) {
     colors: true,
 
     coverageReporter: {
-      type : 'html',
-      dir : 'karma-coverage/'
+      type : 'lcov'
     },
 
     // level of logging
