@@ -12,6 +12,7 @@
     "electron": "electron .",
     "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/jspm/jspm.js install",
     "debug": "node-inspector & electron --debug=5858",
+    "test-once": "karma start --single-run --browsers PhantomJS",
     "test-angularjs": "karma start --auto-watch"
   },
   "repository": {
