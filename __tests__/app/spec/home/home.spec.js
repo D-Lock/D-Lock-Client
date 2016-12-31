@@ -1,6 +1,7 @@
 'use strict';
 
 describe('Controller: HomeController', function() {
+    var createController;
     var controller, $scope, $window, $document, AuthenticationService, FileService, MD5;
 
     beforeEach(module('DLock-Home'));
@@ -29,10 +30,13 @@ describe('Controller: HomeController', function() {
         $window = _$window_;
         MD5 = _md5_;
 
-        controller = $controller('HomeController', {$scope: $scope,
+        createController = function() {
+            return $controller('HomeController', {$scope: $scope,
             $window: $window, $document: $document, 
             AuthenticationService: AuthenticationService, 
             FileService: FileService, MD5: MD5});
+        };
+        controller = createController();
     }));
 
     it('should work', function() {
@@ -47,6 +51,14 @@ describe('Controller: HomeController', function() {
 
     it('should set up an authentication callback', function() {
         expect(AuthenticationService.onOnline.length).toBe(1);
+    });
+
+    it('should look for files again authentication goes online', function() {
+        // Run the onOnline handler set up in the previous test
+        AuthenticationService.onOnline[0](true);
+
+        // Make sure it got the list of files
+        expect(FileService.getFiles.calls.count()).toEqual(2);
     });
 
     it('should be able to upload', function() {
@@ -71,19 +83,16 @@ describe('Controller: HomeController', function() {
         expect($scope.selectedFile).toBe(file);
     });
 
-    it('should clear files when offline', function($controller) {
+    it('should clear files when offline', function() {
         $scope.files = [{}];
         $scope.selectedFile = {};
-        
+
         // Initially set selected files
         AuthenticationService.online = false;
 
-        controller = $controller('HomeController', {$scope: $scope,
-            $window: $window, $document: $document, 
-            AuthenticationService: AuthenticationService, 
-            FileService: FileService, MD5: MD5});
+        createController();
 
-        expect($scope.files).toBe({});
+        expect($scope.files).toEqual({});
         expect($scope.selectedFile).toBeUndefined();
     });
 });
