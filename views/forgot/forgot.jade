@@ -1,0 +1,10 @@
+.container
+  form
+    .row
+      .five.columns
+        label(for='Email') Email
+        input#Email.u-full-width(type='email', placeholder='Email', ng-model='forgotCreds.email')
+      .two.columns
+        label(for='exampleEmailInput')  
+        input.button-primary(type='submit', value='Sign Up', ng-click='forgot()')
+      .twelve.columns(ng-bind='errorText')

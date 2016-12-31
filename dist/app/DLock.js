@@ -5,8 +5,7 @@
   angular
     .module('DLock', [
       'DLock-Home',
-      'DLock-Authentication',
-      'ui.router'
+      'DLock-Authentication'
     ])
     .config(config);
 
