@@ -16,6 +16,11 @@ function AuthenticationServiceMock($q) {
     user: fakeUser,
     online: true,
     onOnline: [],
+    logIn: jasmine.createSpy('logIn').and.callFake(function() {
+      var deferred = $q.defer();
+      deferred.resolve(fakeUser);
+      return deferred.promise;
+    }),
     forgot: jasmine.createSpy('forgot').and.callFake(function() {
       var deferred = $q.defer();
       deferred.resolve(fakeUser);

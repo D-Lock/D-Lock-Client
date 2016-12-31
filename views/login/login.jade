@@ -4,7 +4,7 @@
   form.row.login__container
     .small-6.columns
       label Email
-        input.login__input(type="email", placeholder="username@example.com", ng-model="loginCreds.email")
+        input.login__input(type="email", placeholder="username@example.com", ng-model="loginCreds.email", ng-change="saveCreds()")
     .small-4.columns
       label Password
         input.login__input(type="password", placeholder="Password", ng-model="loginCreds.password")

@@ -29,16 +29,41 @@
       });
     };
 
+    var checkMacAddress = function() {
+      return new Promise(function(resolve, reject) {
+        service.allAddresses.once('value', function(snapshot) {
+          var val = snapshot.val();
+          var values = Object.keys(val).map(function(key) {
+            return val[key].address;
+          });
+
+          if(values.indexOf(service.macAddress) === -1) {
+            return reject("This device is not configured with this account.");
+          }
+          resolve();
+        });
+      });
+    };
+
     //Public method for logging in
     service.logIn = function(email, password) {
       return new Promise(function(resolve, reject) {
+        var user = undefined;
+
         var signIn = auth.signInWithEmailAndPassword(email, password)
-        .then(function(user) {
+        .then(function(_user) {
+          user = _user;
+
+          service.onlineAddresses = db.ref(CLIENTS_REF).child(user.uid).child("online");
+          service.allAddresses = db.ref(CLIENTS_REF).child(user.uid).child("all");
+
+          return setMacAddress();
+        }).then(function() {
+          return checkMacAddress();
+        })
+        .then(function() {
           service.loggedIn = true;
           service.user = user;
-
-          service.onlineAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("online");
-          service.allAddresses = db.ref(CLIENTS_REF).child(service.user.uid).child("all");
 
           service.authenticateUser({
             id: user.uid,
@@ -57,7 +82,7 @@
       });
     };
 
-    service.setMacAddress = function() {
+    var setMacAddress = function() {
       return new Promise(function(resolve, reject) {
         if(!$window.mac) {
           return reject("MAC Address is not in the global scope");

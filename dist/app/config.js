@@ -2,6 +2,8 @@
   'use strict';
 
   angular.module('DLock-Configuration', [])
+    .value('DEBUG', false)
+
     .value('FIREBASE_CONFIG', {
       "apiKey": "AIzaSyD--ACvhpg6AtGFXhdKwMgn8Lv8Q2oMTT4",
       "authDomain": "d-lock.firebaseapp.com",

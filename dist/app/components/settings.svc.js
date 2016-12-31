@@ -41,6 +41,14 @@
       return deferred.promise;
     };
 
+    service.getLoginUsername = function() {
+      return getProperty("loginUsername", "");
+    };
+
+    service.setLoginUsername = function(val) {
+      return setProperty("loginUsername", val);
+    };
+
     service.getDownloadLocation = function() {
       return getProperty("downloadLocation", "C:\\");
     };
