@@ -13,9 +13,7 @@ D-Loc allows users to spread their files over multiple devices, increasing file 
 git clone https://github.com/D-Lock/D-Lock-Client
 cd D-Lock-Client
 npm install
-bower install
-jspm install
-npm start
+gulp & electron .
 ```
 
 Client requires a Firebase configuration in `dist/app/config.js`, and a [Routing Server](https://github.com/D-Lock/Routing-Server).
