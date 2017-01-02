@@ -1,0 +1,8 @@
+version: '2'
+services:
+  client:
+    build: .
+    volumes:
+      - ".:/usr/src/app"
+    tty: true
+    stdin_open: true

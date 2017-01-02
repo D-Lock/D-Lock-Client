@@ -2,12 +2,13 @@
   "name": "dloc-client",
   "version": "1.0.0",
   "description": "A secured, distributed file system",
+  "license": "MIT",
   "engines": {
     "node": "4.2.x"
   },
   "main": "main.js",
   "scripts": {
-    "start": "gulp && electron .",
+    "start": "gulp & electron .",
     "watch": "gulp",
     "electron": "electron .",
     "postinstall": "./node_modules/bower/bin/bower install",
@@ -29,7 +30,6 @@
     "babel-jest": "15.0.0",
     "bower": "1.7.9",
     "del": "2.2.2",
-    "electron": "^1.4.2",
     "electron-packager": "8.0.0",
     "getmac": "^1.2.1",
     "gulp": "^3.9.1",
