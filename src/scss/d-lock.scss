@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 @import '_globals.scss';
@@ -7,6 +7,10 @@
 
 body {
   background: transparent;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', sans-serif;
 }
 

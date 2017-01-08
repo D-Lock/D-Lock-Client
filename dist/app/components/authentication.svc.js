@@ -20,9 +20,14 @@
     var addToOnline = function() {
       service.onlineAddresses.once('value', function(snapshot) {
         var val = snapshot.val();
+        
+        if(val === null) {
+          service.onlineAddresses.push(service.macAddress);
+        }
+
         var values = Object.keys(val).map(function(key) {
-            return val[key].address;
-          });
+          return val[key].address;
+        });
         
         if(values.indexOf(service.macAddress) !== -1){
           return;

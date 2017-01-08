@@ -1,0 +1,37 @@
+.splash {
+  width: 50%;
+  height: 250px;
+  position: absolute;
+  left: 25%;
+  top: calc(50% - 125px);
+  background: light-gradient($accent-color, 15%);
+  border-radius: $border-radius;
+
+  &__content {
+    -webkit-user-select: none;
+    color: $white;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  &__logo {
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+  }
+
+  &__version {
+    font-size: 0.8em;
+    font-weight: 100;
+    padding-right: 30px;
+    text-align: right;
+  }
+
+  &__status {
+    font-size: 1.2em;
+    font-weight: 100;
+    text-align: center;
+  }
+}

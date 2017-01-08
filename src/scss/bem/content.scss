@@ -1,7 +1,7 @@
 .content {
   background: light-gradient($content-background, 10%);
   box-shadow: bottom-shadow(3), top-shadow(3);
-  border-radius: 0 $border-radius 0 0;
+  border-radius: $border-radius;
   height: 100%;
   padding: 0;
 
