@@ -25,6 +25,12 @@
   function config($stateProvider) {
     $stateProvider
     .state({
+      name: 'splash',
+      url: '/splash',
+      templateUrl: 'splash/splash.html',
+      controller: 'SplashController'
+    })
+    .state({
       name: 'index',
       url: '/',
       views: {

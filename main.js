@@ -24,7 +24,8 @@ var options = {
 	"debug": true,
 	"version": "1.0.0",
 	"views_dir": "dist/views",
-	"root_view": "index.html"
+	"root_view": "index.html",
+  "entry_state": "splash"
 };
 
 options = _.extend({
@@ -48,7 +49,7 @@ app.on('ready', function() {
     frame: false, 
     transparent: true
   });
-  mainWindow.loadURL(path.join('file://', __dirname, options.views_dir, options.root_view));
+  mainWindow.loadURL(path.join('file://', __dirname, options.views_dir, options.root_view + '#', '!', options.entry_state));
   if(options.debug) { mainWindow.openDevTools(); }
   mainWindow.on('closed', function() { mainWindow = null; });
 });
