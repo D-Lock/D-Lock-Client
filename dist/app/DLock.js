@@ -31,6 +31,18 @@
       controller: 'SplashController'
     })
     .state({
+      name: 'first',
+      url: '/first',
+      abstract: true,
+      controller: 'FirstRunController'
+    })
+    .state({
+      name: 'first.register',
+      url: '/register',
+      templateUrl: 'first/register.html',
+      controller: 'FirstRunController'
+    })
+    .state({
       name: 'index',
       url: '/',
       views: {

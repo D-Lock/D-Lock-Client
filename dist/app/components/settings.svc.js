@@ -57,6 +57,14 @@
       return setProperty("downloadLocation", val);
     };
 
+    service.getFirstRun = function() {
+      return getProperty("firstRun", true);
+    };
+
+    service.setFirstRun = function(val) {
+      return setProperty("firstRun", val);
+    };
+
     return service;
   }
 })();
